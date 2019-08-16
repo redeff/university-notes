@@ -1,0 +1,103 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\title{Práctica de Análisis}
+\begin{document}
+\maketitle
+\section{Desigualdad triangular}
+Dados $a$, $b$, tenemos $|a + b| \leq |a| + |b|$, esta implica \[
+	||a| - |b|| \leq |a-b|
+\]
+
+Demo
+
+\[
+	|a+b| \leq |a| + |b|
+\]
+\[
+	\iff |a+b|^2 \leq (|a| + |b|)^2
+\]
+\[
+	\iff (a+b)^2 \leq a^2 + 2|a||b| + b^2
+\]
+\[
+	\iff a^2 + 2ab + b^2 \leq a^2 + 2|a||b| + b^2
+\]
+\[
+	\iff 2ab \leq 2|a||b|
+\]
+\[
+	\iff ab \leq |ab|
+\]
+
+Demo de la otra
+\[
+	|a| = |a-b+b| \leq |a-b| + |b|
+\]
+\[
+	|a| \leq |a-b| + |b|
+\]
+\[
+	|a| - |b| \leq |a-b|
+\]
+Análogamente, 
+\[
+	|b| - |a| \leq |b-a| = |a-b|
+\]
+Luego 
+\[
+	max \; \{|b| - |a| \quad |a| - |b|\} \leq |a-b|
+\]
+\[
+	||a| - |b|| \leq |a-b|
+\]
+
+\section{Supremo}
+Dado $A \subseteq \R$, un $c \in \R$ es cota superior $\iff \forall a \in A: a \leq c$
+\subsection{Acotadez}
+Un conjunto $A \subseteq \R$ es acotado superiormente $\iff$ admite cota superior
+
+Es acotado si es acotado superior y inferior
+\subsection{Supremo}
+Menor de las cotas superiores
+\subsection{Axioma del supremo}
+Para todo $A \subseteq \R$, con $A \ne \emptyset$ acotado superiormente,
+existe el supremo llamado $\sup A$
+
+\section{Máximo}
+El máximo de un conjunto $A \subseteq \R$ vale $\sup A$ si $\sup A \in A$
+\section{Arquímedes}
+el conjunto $\R$ es arquimediano. es decir, para todo $x>0$, $y\in \R$, existe un $n \in N$
+tal que $nx > y$
+
+Supongamos que no, luego tomemos el conjunto $A = \{xn \mid n \in N\}$, luego $y$ es cota
+superior, entonces tiene supremo, luego existe $s = \sup A$ cota superior de $A$
+tal que hay un $t \in A$
+con $t + x > s$; pero $t + x \in A \;\forall t \in A$, luego contradicción, la que $s$
+ya no es cota superior
+
+\section{Ejercicio}
+Dado $A = \left\{\frac{n+1}{n} \mid n \in N \right\}$, encontrar $\sup A$, $\max A$, $\inf A$ y $\min A$, si es que existen
+
+Notemos que la sucesión $a_n = \frac{n+1}{n}$ es decreciente, luego $a_1 = 2 = \max A = \sup A$
+
+Ahora vamos a demostrar que $1$ es ínfimo. Es claro que $1 < a_i \; \forall i \in N$, ahora necesitamos demostrar que para todo $\varepsilon > 0 \; \exists a_i < 1 + \varepsilon$
+
+Tenemos
+\[\frac{n+1}{n} < 1 + \varepsilon\]
+\[\frac{n+1}{n} - 1 < \varepsilon\]
+\[\frac{1}{n} < \varepsilon\]
+\[1 < n\varepsilon\]
+Que siempre existe por arquímedes
+
+\section{Ejercicio 2}
+Calcular $\sup \left\{\frac{n^2}{5^n} \mid n \in N\right\}$.
+Veamos que $a_n = \frac{n^2}{5^n}$ es decreciente
+\[\frac{n^2}{5^n} \ge \frac{(n+1)^2}{5^{n+1}}\]
+\[5n^2 \ge (n+1)^2\]
+Que es verdad. Y como decrece, el primer elemento es el supremo y el máximo
+
+\section{Ejercicio 3}
+Calcular $\inf \left\{n^2 - 13n + 40 \mid n \in N\right\}$
+
+El vértice de la parábola está en $\frac{13}{2}$, entonces el mínimo se da en $6$ ó $7$
+\end{document}
