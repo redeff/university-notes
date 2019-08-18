@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{amsmath}
 \input{../../style/header.tex}
 \title{Práctica de Análisis}
 \begin{document}
@@ -10,24 +11,14 @@ Dados $a$, $b$, tenemos $|a + b| \leq |a| + |b|$, esta implica \[
 
 Demo
 
-\[
-	|a+b| \leq |a| + |b|
-\]
-\[
-	\iff |a+b|^2 \leq (|a| + |b|)^2
-\]
-\[
-	\iff (a+b)^2 \leq a^2 + 2|a||b| + b^2
-\]
-\[
-	\iff a^2 + 2ab + b^2 \leq a^2 + 2|a||b| + b^2
-\]
-\[
-	\iff 2ab \leq 2|a||b|
-\]
-\[
-	\iff ab \leq |ab|
-\]
+\begin{align*}
+	|a+b| &\leq |a| + |b| \\
+	\iff |a+b|^2 &\leq (|a| + |b|)^2 \\
+	\iff (a+b)^2 &\leq a^2 + 2|a||b| + b^2 \\
+	\iff a^2 + 2ab + b^2 &\leq a^2 + 2|a||b| + b^2 \\
+	\iff 2ab &\leq 2|a||b| \\
+	\iff ab  &\leq |ab| \\
+\end{align*}
 
 Demo de la otra
 \[
