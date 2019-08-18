@@ -1,0 +1,51 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\title{Teórica de Álgebra 2}
+\begin{document}
+	\maketitle
+	\section{Par Ordenado}
+	El par ordenado se nota $(a, b)$ y tiene la propiedad de que
+	$(a, b) = (c, d) \iff a=c \text{ y } b = d$
+
+	El par $(a, b)$ se define como $\{\{a\}, \{a, b\}\}$, que notemos que cumple la prop
+	del párrafo anterior
+
+	Notemos que si $a = b$ luego $|(a, b)| = 1$, osino $|(a, b)| = 2$
+
+	Supongamos $\{\{a\}, \{a, b\}\} = \{\{c\}, \{c, d\}\}$, luego $a = b$ iff
+	$c = d$ para que tengan la misma cantidad de elementos.
+
+	Si son iguales notemos que tenemos $\{\{a\}\} = \{\{c\}\}$, entonces $a = c$, y
+	ya estamos
+
+	Si son $a$ y $b$ distintos, luego ambos pares ordenados tienen tamaño $2$.
+	Además para que $\{\{a\}, \{a, b\}\} = \{\{c\}, \{c, d\}\}$, necesariamente
+	$\{a, b\} = \{c, d\}$ y $\{a\} = \{c\}$, ya que para que dos sean iguales deben
+	tener el mismo tamaño
+
+	Entonces $a = c$, y $\{a, b\} = \{c, d\}$, entonces $b = d$ y estamos
+
+	\section{Geometría Analítica}
+	Establece una biyección puntos del plano $\iff$ pares de reales
+
+	\section{Preducto Cartesiano}
+	dados $A$ y $B$, el producto cartesiano $A \times B := \{(a, b) \mid a \in A,
+	b \in B\}$
+
+	\section{Relaciones}
+	Una relación entre elementos de $A$ y elementos de $B$ es un subconjunto $R
+	\subseteq A \times B$
+	\subsection{Relación Discreta}
+	Cuando $R = \emptyset$
+	\subsection{Relación Indiscreta}
+	Cuando $R = A \times B$
+
+	\subsection{Relación de Orden ($A = B$)}
+	Una relación $\leq \;\subseteq A^2$ es un orden (parcial) si cumple:
+
+	$a \leq a$ (Reflexividad)
+
+	$a \leq b$ y $b \leq c$ implica $a \leq c$ (Transitividad)
+
+	$a \leq b$ y $b \leq a$ implica $a = b$ (Antisimetría)
+\end{document}

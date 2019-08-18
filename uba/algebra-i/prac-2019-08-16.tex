@@ -1,0 +1,29 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\title{Segunda Práctica de Álgebra}
+\begin{document}
+	\maketitle
+	\section{Ejercicio 1}
+	Demostrar $B = \left(A \cap B^c\right) \cup \left(A^c \cap B\right) \iff A = \emptyset$
+
+	Ida: Sea $x \in B$, luego $x \in A \cap B^c$ ó $x \in A^c \cap B$
+
+	Si $x \in A \cap B^c$, contradicción, ya que tenemos $x \in B$ y $x \in B^c$, entonces
+	$x \in A^c \cap B$, con lo que $B \subseteq A^c$, es decir $A$ y $B$ disjuntos
+
+	Reemplazamos en la original y tenemos $B = A \cup B$, osea $A \subseteq B$, pero
+	$A \subseteq B^c$, luego $A = \emptyset$
+
+	Ahora la vuelta: si $A = \emptyset$, reemplazamos $B = (\emptyset \cap B^c)
+	\cup (\emptyset^c \cap B) = \emptyset \cup B = B$, luego se cumple
+
+	\section{Ejercicio 2}
+	Demostrar $A \cap C = \emptyset \rightarrow A \cap (B \bigtriangleup C) = A \cap B$.
+
+	Supongamos $x \in A \cap (B \bigtriangleup C)$, luego $x \in A$ y $x \in B
+	\bigtriangleup C$, pero $x \in A$ implica $x \notin C$, luego $x \in B$, entonces
+	$x \in A \cap B$
+
+	Si $x \in A \cap B$, tenemos que $x \notin C$, luego $x \in B \bigtriangleup C$,
+	entonces como $x \in A$ tenemos $x \in A \cap (B \bigtriangleup C)$
+\end{document}

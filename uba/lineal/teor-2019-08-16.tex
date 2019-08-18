@@ -1,0 +1,92 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\title{Clase 2 de Álgebra Lineal}
+\begin{document}
+\maketitle
+\section{Subespacio Propio}
+Los subespacios de $\V$ dintintos de $\V$ y de $\{0\}$ (el subespacio nulo)
+\subsection{Ej}
+Si $\V = \R^{[0, 1]}$, y $S = \{f \in \V \mid f \; cont\}$, $S$ es sub. propio
+\section{Intersección de Subespacios}
+Si $S$ y $T$ son subespacios de $\V$, luego $S \cap T$ es sub. de $\V$, y en gral, si $\WW$
+es un conjunto de subespacios, luego $\U = \bigcap_{\W \in \WW} \W$ es subespacio
+
+Demo
+
+Notemos que $0 \in \U$ ya que $0 \in \W \; \forall \W \in \WW$
+
+Notemos que si $v, w \in \U$, luego para todo $\W \in \WW$, tenemos $v, w \in \W$, que
+implica $v + w \in \W$ ya que es subespacio
+
+Notemos que si $v \in \U$ y $\lambda \in \K$,
+luego para todo $\W \in \WW$ tenemos $\lambda v \in \W$,
+ya que es subespacio
+\section{Unión de subespacios}
+La unión de dos subespacios $\S \cap \T$ de $\V$ es sub
+$\iff$ $\S \subseteq \T$ ó $\T \subseteq \S$
+
+Demo
+
+Si se cumple la pertenencia claramente es subespacio
+
+Si no, tomemos $v \in \S - \T$, y $u \in \T - \S$, luego para que sea subespacio tenemos
+que $v + u \in \S \cup \T$, wlog $u + v \in \S$,
+pero $v \in \S$, luego $u \in \S$, contradicción.
+\section{Combinaciones lineales}
+Sea $\V$ un $\K$-espac vectorial, y sea $\emptyset \neq X \in \V$, luego
+$\langle X \rangle = \left\{\sum_{i \leq n}\lambda_ix_i \;\middle|\;
+\begin{matrix}
+x_i \in X\\ \lambda_i \in \K\\ n \in \N
+\end{matrix}
+\right\}$
+Nótese que todas las sumas son de finitos términos
+\subsection{$\langle X \rangle$ es subespacio}
+dado $X \in \V$, el generado por $X$ ($\langle X \rangle$) es un subespacio de $\V$ que contiene a $X$
+
+Demo
+
+Notemos que el $0 \in X$
+
+Si $u, v \in \langle X \rangle$, luego $u = \sum \lambda_ix_i$, y
+$v = \sum \mu_ix_i$ (los $x$s que aparecían en una y no en otra le pongo coeficiente $0$),
+entonces $u + v = \sum (\lambda_i + \mu_i)x_i \in \langle X\rangle$
+
+Si $v \in \langle X \rangle$, luego $v = \sum \lambda_i x_i$, luego para todo $\mu \in \K$
+tenemos $\mu v = \sum (\mu\lambda_i) x_i \in \langle X \rangle$
+
+\subsection{$\langle X \rangle$ es el subespacio más chico}
+Supongamos que $X \subseteq \T$, $\T$ sub. Notemos que
+$\langle X \rangle \subseteq \T$ ya que por ser subespacio, $\T$
+contiene todas las combinaciones lineales de cosas en $X$
+
+Decimos que $\langle\{\}\rangle = \{0\}$
+
+\subsection{Otra definición de generador}
+Sea 
+$U = \bigcap_{
+	\begin{matrix}
+		S \text{ sub. } V \\
+		X \subseteq S
+	\end{matrix}
+} S$, vamos a ver $U = \langle X\rangle$
+
+Es claro que $X$ está contenido en la intersección pq está contenido en cada uno,
+y además la intersección es subespacio pq es intersección de subespacios, luego $\langle X \rangle \subseteq U$
+
+Además $\langle X \rangle$ es uno de los elementos de la intersección, luego
+$U \subseteq \langle X\rangle$
+\section{Dependencia Lineal}
+Dado $X \subseteq \V$, $X = \{x_i\}$ es linearmente independiente si cuando
+$\sum \lambda_i x_i = 0$, entonces $\lambda_i = 0$
+
+Para $X$ infinito, se dice que $X$ es LI si todo subconjunto finito de $X$ es LI
+
+Notemos que $\emptyset$ es LI, y que si $0 \in X$, luego X es LD
+
+\subsection{Prop}
+Si $X \subseteq Y$, entonces $X$ ld implica $Y$ ld, y $Y$ li implica $X$ li
+
+\subsection{Independencia $\iff$ unicidad de representación}
+Tenemos que $X$ es li $\iff$ para todos
+$\sum \lambda_ix_i = \sum \mu_ix_i$ se tiene $\lambda_i = \mu_i$
+\end{document}
