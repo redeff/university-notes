@@ -1,0 +1,108 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\begin{document}
+\section{Dependencia lineal}
+\fbox{\begin{minipage}{\textwidth}
+		\subsection{Lema 1}
+Sea $X \subseteq \V$
+Son equivalentes:
+\begin{enumerate}
+	\item $X$ es ld
+	\item Exite un $x \in X$ tal que $\langle X\rangle = \langle X - x \rangle$
+\end{enumerate}
+\end{minipage}}
+\subsection{1 $\to$ 2}
+Tenemos $\sum \lambda_ix_i = 0$, y wlog $\lambda_0 \neq 0$, luego tenemos
+$x_0 = -\lambda_0^{-1}\sum_{i \geq 1} \lambda_ix_i
+= \sum_{i \geq 1} (-\lambda_0^{-1}\lambda_i)x_i$
+
+Notemos que $\langle X - x_0 \rangle\subseteq \langle X \rangle$, ahora veamos para
+el otro lado
+
+Sea $v \in \langle X \rangle$, luego $v = \sum \mu_iw_i$, $w_i \in X$ wlog $w_0 = x_0$ ó
+ninguno es $x_0$.
+
+Si ninguno es $x_0$, luego trivialmente $v \in \langle X - x_0 \rangle$
+
+Si $w_0 = x_0$, entonces tenemos $v = \mu_0w_0  + \sum_{i \geq 1} \mu_iw_i
+= 
+\mu_0\left(\sum_{i \geq 1} (-\lambda_0^{-1}\lambda_i)x_i\right)
++ \sum_{i \geq 1} \mu_iw_i
+=
+\sum_{i \geq 1} (-\mu_0\lambda_0^{-1}\lambda_i)x_i
++ \sum_{i \geq 1} \mu_iw_i
+$, con $x_{i \geq 1}$, $w_{i \geq 1} \in X - x_0$, luego $v \in \langle X - x_0 \rangle$
+
+\subsection{2 $\to$ 1}
+Supongamos que $\langle X \rangle = \langle X - x \rangle$, luego en particular
+$x \in \langle X - x \rangle$, luego se puede escribir $x = \sum \lambda_ix_i$, 
+con $_i \neq x$ es decir $0 = x + \sum\lambda_ix_i$, osea que $X$ es ld
+
+\section{Lema 2}
+\fbox{\begin{minipage}{\textwidth}
+sea $X \subseteq \V$, $X$ li; y sea $v \in \V$. Luego $X + v$ es li $\iff$
+$v \nsubseteq \langle X \rangle$.
+\end{minipage}}
+
+Notemos que $v \in \langle X \rangle$ claramente implica $X + v$ ld.
+
+Si $X + v$ es ld, luego tenemos $\sum \lambda_ix_i = 0$ con $\lambda_i \neq 0$ y
+$x_i \in X + v$.
+
+Notemos que no puede ser que $x_i \neq v$, ya que luego $X$ ld. Luego wlog $x_0 = v$,
+entonces $\lambda_0v + \sum_{i \geq 1} \lambda_i x_i$, entonces $v \in \langle X \rangle$.
+
+\section{Bases}
+\fbox{\begin{minipage}{\textwidth}
+Dado $X \in \V$, $X$ es base de $\V$ $\iff$ $\langle X \rangle = \V$ y $X$ li.
+\end{minipage}}
+
+\subsection{Prop}
+Son equivalentes:
+\begin{enumerate}
+	\item $B$ es base de $\V$.
+	\item $B$ es maximal bajo independencia lineal.
+	\item $B$ es minimal bajo generación de $\V$.
+\end{enumerate}
+
+\subsubsection{(1) $\to$ (2)}
+Claramente $B$ base implica $B$ li.
+Además supongamos que $B \subsetneq C$. Queremos probar ld.
+
+Tenemos entonces algún $c \in C, c \notin B$. Además como $B$ base tenemos $c$ es
+combinación lineal de elementos de $B$, luego $B + c$ no puede ser li. Entonces como
+$B + c \subseteq C$, tenemos $C$ ld.
+
+\subsubsection{(2) $\to$ (3)}
+Probemos que $\langle B \rangle = \V$. Supongamos que hay $v \in V, v \notin B$, luego
+tenemos por Lema 1, tenemos que $B + v$ es li, contradicción porque era maximal.
+
+Supongamos que $C \subsetneq B$ tal que $\langle C \rangle = V$, luego sea $v \in B - C$.
+Notemos que $v \notin \langle C \rangle$ ya que osinó $B$ no sería li, entonces
+$\langle C \rangle \neq \V$.
+
+\subsubsection{(3) $\to$ (1)}
+Ya sabemos que $\langle B \rangle = \V$, osea que hace falta probar $B$ es li
+supongamos que no, luego por Lema 1, podemos sacar un vector $v \in B$ tal que
+$\langle B - v \rangle = \langle B \rangle = \V$, que contradice la minimalidad
+$\square$.
+
+\section{Espacios Finitamente Generado}
+un espacio vectorial $\V$ es finitamente generado si tiene un conjunto de
+genradores finito.
+\subsection{Lema}
+Si $X$ finito y $\langle X \rangle = \V$, luego existe $B \subseteq X$ tal que $B$ es
+base de $\V$
+
+Sea $\Gamma = \{X' \subseteq X \mid \langle X' \rangle = \V \}$. 
+Sabemos que $\Gamma$ es finito, y además es no vacío porque $X \in \Gamma$
+
+Entonces existe $m = \min \{\#Y \mid Y \in \Gamma\} \in \N$, y además tomemos
+$Y \in \Gamma$ tal que $\#Y = m$. Claramente es minimal bajo generación de $\V$,
+entonces ya sabemos que es base.
+
+\subsection{Clase que viene}
+Si $\langle A \rangle = \V$ y $B \subseteq \V$ li, entonces $\# A \geq \#B$.
+
+Esto implica que todas las bases tienen mismo tamaño.
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass{article}
+\input{../../style/header.tex}
+
+\begin{document}
+\section{Rec}
+$B \subseteq \V$ es base $\iff$ $B$ es li y $\langle B \rangle = \V$
+\section{Ejercicio 1}
+Dado $\V = \K_n[x] =  \{p \in \K[x] \mid p = 0 \text{ ó } \deg(p) \leq n\}$.
+
+Si $B = \{p \mid \deg(p) = i | 0 \leq i \leq n\}$, demostrar que $B$ es base.
+\subsection{Demo 1}
+La matriz en $E = \{x^i \mid 0 \leq i \leq n\}$ es triangular.
+\subsection{Demo 2}
+Inducción. $n = 0$ es trivial.
+
+Si $n \geq 1$, supongamos $\sum \lambda_iB_i = 0$. El coeficiente $n$ de ese polinomio
+tiene que ser cero, luego $\lambda_n = 0$, luego $0 = \sum_{i < n} \lambda_iB_i = 0$,
+pero esto no puede pasar por la hipótesis inductiva.
+
+\section{Ejercicio 8}
+Tomemos $S = \left\{A \in \K^{n \times n} \; \middle| \; \sum_j A_{ij} = 0 = \sum_i A_{ij}\right\}$
+
+Calcular $\dim S$. Notemos que si dejamos libre los $A_{ij}$ con $i < n$ y $j < n$ y
+tomamos $A_{nj} = -\sum_{i < n} A_{ij}$, y $A_{in} = -\sum_{j < n} A_{ij}$, y
+$A_{nn} = -\sum_{i,j < n} A_{ij}$, esta matriz cumple, y son todas las que cumplen.
+
+Luego da $\dim S = (n-1)^2$
+
+\section{Intersección y suma de subespacios}
+Dados $S$, $T$ sub. de $\V$, se tiene
+\begin{itemize}
+	\item $S \cap T = S \cap T$ 
+	\item $S + T = \{s + t \mid s \in S, t \in T\}$
+	\item $S \oplus T = S + T$ si están en suma directa, que se da cuando:
+		\begin{itemize}
+			\item $S \cap T = {0} \iff$
+			\item $\dim (S + T) = \dim S + \dim T \iff$
+			\item $\forall v \in S + T \; \exists! \; s \in S, t\in T \mid s + t = v$
+		\end{itemize}
+\end{itemize}
+
+\section{Complemento}
+Cuando $S \oplus T = \V$, decimos que $S$ es complemento de $T$. Se sabe que eso
+implica $\dim S = n - \dim T$, es decir la dimensión de los complementos es toda la
+misma
+\end{document}
