@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{listings}
+\input{../../../style/header.tex}
+\title{Segunda clase de Haskell}
+
+\begin{document}
+	\maketitle
+	\section{Funciones con Tipo}
+	url de los pdfs: \texttt{cor.to/talgebra2c2019}
+	\section{Guardas}
+	Sa syntax es
+	\begin{lstlisting}[language=Haskell]
+	casos :: Int -> Int
+	casos x
+		| x == 0 = 7
+		| x == 1 = 4
+		| x == 2 = 9
+		| otherwise = casos $ x - 1
+	\end{lstlisting}
+\end{document}
