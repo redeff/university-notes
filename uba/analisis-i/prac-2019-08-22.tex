@@ -1,0 +1,110 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\begin{document}
+	\section{Cuerpo Completo}
+	Un cuerpo completo es aquel en el cual se cumple el axioma del supremo
+	\subsection{$\Q$ no es completo}
+	Sea $A = \{x \in \Q^+ \mid x^2 < 2\}$.
+
+	Sabemos que $A$ es no vacío ($1 \in A$), y $2$ es una cota,
+	luego para que se cumpla el axioma del supremo, debería tener supremo.
+
+	Supongamos que $s \in \Q$ es supremo de $A$.
+	Luego tenemos o bien $s \leq \sqrt{2}$ o $s \geq \sqrt{2}$.
+
+	Si $s \leq \sqrt{2}$, luego existe por densidad $q \in \Q$ tal que $s < q < \sqrt{2}$,
+	entonces $q \in A$, luego $s$ no es cota.
+
+	Si $s \geq \sqrt{2}$, luego existe por densidad $q \in \Q$ tal que $\sqrt{2} < q < s$,
+	entonces $q$ es cota de $A$, lo que contradice minimalidad de cota.
+
+	\section{Sucesiones}
+	\subsection{Ínfimo de Monótonas}
+	Si tenemos una monotona decreciente $(a_i)_i$, luego tenemos que
+	$\inf \{a_i\} = \lim_{n \to \infty} a_n$.
+
+	Se demuestra trivialmente ($\forall \varepsilon \dots$).
+
+	Para todo $\varepsilon > 0$, necesitamos ver que todos los elementos a partir de un
+	punto están a distancia de $\in A$ menor a $\varepsilon$.
+
+	Notemos que una vez que pasa, siempre pasa porque es decreciente, luego para
+	que no pase, ninguno de los elementos está a dist menor a epsilon de $\inf A$.
+
+	Pero luego $\inf A - \varepsilon$ es cota inferior. Contradicción-
+	\subsection{Ejercicio 1}
+	Hallar, si existe, sup, inf, max, y min de
+	$A = \left\{\frac{4n-2}{2n-9} \;\middle| \; n \in \N\right\}$.
+
+	Vamos a ver si $a_n > a_{n+1}$.
+\begin{align*}
+	\frac{4n-2}{2n-9} &> \frac{4(n+1)-2}{2(n+1)-9} \\
+	\iff (4n-2)(2(n+1)-9) &> (4(n+1)-2)(2n-9) \quad \text{Para $n \geq 5$}\\
+	\iff (4n-2)(2n-7) &> (4n+2)(2n-9) \\
+	\iff 8n^2-4n-28n+14 &> 8n^2+4n-36n-18 \\
+	\iff -4n-28n+14 &> 4n-36n-18 \\
+	\iff 14 &> -18 \\
+\end{align*}
+Vamos a partir a $A$ en $A = A_1 \cap A_2$, con $A_1 = \{a_{i < 5}\}$, y $A_2 = \{a_{i\geq 5}\}$
+
+Luego $\sup A = \max \{\sup A_1, \sup A_2\}$, donde $\sup A_2 = a_5$, y $\sup A_1$ se
+puede sacar porque hay finitos
+
+Además $\inf A_2 = 2$ por límite, y $\inf A_1$ es fácil
+
+\subsection{Ejercicio 2}
+$A = \left\{\frac{(-1)^n + 7}{n+4} \; \middle| \; n \in \N\right\}$
+
+Tomamos las dos sumsicesiones $A_1 = \{a_{2k+1}\}$, $A_2 = \{a_{2k}\}$.
+
+Una de estas es decreciente, y la otra es creciente, entonces los ínfimos y supremos se
+calculan con el límite y promer elemento, y con esos se calculan los de $A$
+
+\subsection{Ejercicio 3}
+Sucesión definida por recurrencia
+$b_1 = \sqrt{2}$, $b_{n+1} = \sqrt{2 + b_n}$.
+
+Vamos a probar $b_i < 2$. Por inducción,
+$b_1 < 2$ y
+
+\[\sqrt{2 + b_n} < 2 \iff 2 + b_n < 4\iff b_n < 2\]
+
+Además notemos $(b_n)^2 < 2 + b_n$, ya que $b_n < 2$
+
+Sea $f(x) = \sqrt{2 + x} - x$. La derivada es $\frac{1}{2\sqrt{2 + x}} - 1$, y tenemos
+\[\frac{1}{2\sqrt{2 + x}} - 1 < 0\]
+\[\frac{1}{2\sqrt{2 + x}} < 1\]
+\[1 < 2\sqrt{2 + x}\]
+\[1 < 4(2 + x)\]
+\[\frac{1}{4} < 2 + x\]
+\[\frac{1}{4} -2 < x\]
+Osea que es decreceiente $f$ para los positivos.
+
+Además notemos que $f 2 = 2$, entonces $f x > 0 \;\forall x < 2$
+
+Supongamos que $\lim_{n \to \infty} a_n = L$ con $L < 2$, luego tomemos $a_n$ tal
+que $L - a_n < f(L)$, entonces notemos que también $L - a_n < f a_n$, ya que $f$ es decreciente,
+pero luego $a_{n+1} = a_n + f a_n > L$. Contradicción.
+
+Luego $\lim_{n \to \infty} a_n = 2$
+
+\section{Topología}
+\subsection{Distancia}
+
+A todos los puntos a distancia menor a $\varepsilon$ con centro $C$ se los llama
+una bola (abierta) de centro $C$ con radio $\varepsilon$. Se nota $B_\varepsilon(C)$
+
+\subsubsection{En $\R$}
+La distancia se mide con módulos.
+
+\subsubsection{En $\R^n$}
+La norma es $||(x_i, \dots)|| = \sqrt{\sum x_i^2}$, y la distancia es $d(P, Q) = ||P-Q||$
+
+\subsection{Apertura}
+Un subconjunto $S \in \R^n$ es abierto $\iff \;\forall s \in S \;\exists \varepsilon \mid
+B_{\varepsilon}(s) \subseteq S$
+
+$S$ es cerrado $\iff$ $\R^n - S$ es abierto.
+\subsection{Propiedad}
+Se tiene que $|P_x - Q_x| \leq d(P, Q)$, para todos puntos $P$, $Q$.
+\end{document}

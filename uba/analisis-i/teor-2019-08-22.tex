@@ -1,0 +1,67 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\begin{document}
+\section{Espacio}
+Se trabaja en el espacio $\R^d$, que es el espacio euclídeo $d$-dimensional.
+
+\subsection{Espacio Vectorial}
+$\R^d$ tiene estructura de \emph{espacio vectorial} bajo $\R$
+
+\subsection{Norma y Distancia}
+La norma  está definida como $||P|| = \sqrt{\sum (P_i)^2}$.
+Propiedades de la norma:
+\begin{itemize}
+	\item $||P|| \geq 0$, y da $0$ solo para el vector $0$.
+	\item $||\lambda \cdot P|| = |\lambda|\cdot||P||$.
+	\item $||P+Q|| \leq ||P|| + ||Q||$ (Desigualdad Triangular).
+	\item $||P-Q|| \geq \big|||P|| - ||Q||\big|$ (Desigualdad Triangular$'$).
+\end{itemize}
+
+La distancia en $\R^d$ se define como $d(P, Q) = ||P-Q||$.
+
+\section{Límite en $\R^d$}
+Notemos que $\N \to \{d\} \to \R \sim \{d\} \to \N \to \R$.
+
+Dada $a : \N \to \{d\} \to \R$, se define el límite como:
+
+\[\lim_{n \to \infty} an = \ell \iff \forall \e > 0 \;
+	\exists n_0 \in \N \;\forall
+n > n_0 : ||\ell - an|| < \e\]
+
+\subsection{Bolas en $\R^d$}
+Se dice que $B(P, \e) = \{Q \in \R^d : ||P - Q|| < \e\}$ es una bola abierta.
+
+\subsection{Teorema}
+Dada $a : \N \to \{d\} \to \R$, tenemos
+$\lim_{n \to \infty} an = \ell \iff \forall i \in \{d\}, \lim_{n \to \infty} ani = \ell i$
+
+O equivalentemente $\lim a = \lim \circ \; \text{swap} \; a$
+
+\subsubsection{Demo}
+Supongamos $\lim a = \ell$, luego tenemos $\forall \e > 0 \; \exists n_0 \; \forall n > n_0 :
+||an - \ell|| < \e$
+
+Notemos que $||an - \ell|| < |(an - \ell) i|| \;\forall i \in \{d\}$, luego estamos.
+
+Ahora hagamos el otro lado. Supongamos que $\lim \circ \;\text{swap}\; a = \ell$.
+Luego tomémonos, dado un $\e > 0$, un $n_0$ tal que $|ani - \ell i| < \frac{\e}{\sqrt{d}}
+\forall n > n_0, i \leq d$
+
+Luego tenemos que, a apartir de $n_0$, $||an - \ell|| = \sqrt{\sum (ani - \ell i)^2}
+< \sqrt{\sum \left(\frac{\e^2}{d} \right)} = \sqrt{\e^2} = \e$, entonces estamos.
+
+\section{Clasificación de Conjuntos}
+Dado un conjunto $A \subseteq \R^d$, un punto $x \in A$ es \emph{interior} a $A$ si
+existe un $\e$ tal que $B(x, \e) \subseteq A$. Un punto es \emph{exterior} si es interior
+el complemento. Un punto está en la \emph{frontera} de $A$, si no está ni en el interior
+ni en el exterior de $A$.
+
+Los interiores a $A$ se notan $A^\circ$, los exteriores se notan $A^{\text{ext}}$, y la
+frontera se nota $\partial A$.
+
+\subsection{Abierto}
+$A$ es abierto si $A = A^\circ$. $A$ es cerrado si $\partial A \subseteq A$.
+
+Alternativamente, $A$ es cerrado si para toda $a : \N \to A$, si existe $\lim a$, luego
+$\lim a \in A$
+\end{document}
