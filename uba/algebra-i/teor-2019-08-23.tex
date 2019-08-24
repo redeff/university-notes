@@ -1,0 +1,47 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\begin{document}
+\section{Familias Indexadas}
+Dado un conjunto $I$, una familia $\FF$ indexada por $I$ con elementos en $A$ es una
+función $\FF : I \to A$, y se define $\FF_i = \FF i = \FF(i)$. Y se nota
+$(\FF_i)_{i \in I}$ en lugar de $\FF : I \to A$
+
+Si $A$ es un conjunto de conjuntos, se dice que:
+\[\bigcup_{i \in I} \FF_i = \{x : \exists i \in I : x \in \FF_i\}\]
+\[\bigcap_{i \in I} \FF_i = \{x : \forall i \in I : x \in \FF_i\}\]
+
+\section{Conjuntos Inductivos}
+Un subconjunto $A \inn \R$ es inductivo sii $1 \in A$ y $a \in A \Rightarrow a+1 \in A$.
+
+\section{Propiedades}
+Sea $\FF : I \to \PP(\R)$. Si $\FF_i$ es inductivo para todo $i \in I$, tenemos
+$X = \bigcap \FF_i$ es inductivo.
+
+Claramente $1 \in X$ ya que $1 \in \FF_i \forall i \in I$. Además, si $a \in X$,
+luego $a\in \FF_i \forall i$, por lo que $a+1 \in \FF_i \forall i$, luego $a+1 \in X$.
+
+\section{Naturales}
+Definimos a $\N$ como a la intersección de todos los subconjuntos inductivos de $\R$,
+que por la propiedad que demostramos es inductivo.
+
+\section{Inducción}
+Si $A \in \N$ y $A$ es inductivo, luego $A = \N$.
+
+\section{Suma de Gauss}
+Dada una sucesión $f : \{n\} \to \R$, $f n = \lambda \cdot n + c$, la suma
+$\sum_i fi = \sum_i \lambda \cdot i + c = c \cdot n + \lambda \sum_i i = c
+\cdot n + \lambda \cdot \frac{n \cdot (n+1)}{2}$
+
+Definamos $A = \left\{n \in \N : 1 + 2 + \dots + n = \frac{n \cdot (n+1)}{2} \right\}$.
+Notemos que $1 \in A$, y además si $n \in A$ luego $n + 1 \in A$, ya que
+$\frac{n \cdot (n+1)}{2} + (n+1) = \frac{(n+1) \cdot (n+2)}{2} $, entonces sabemos que
+$A$ es inductivo, y $A \inn \N$, luego $A = \N$
+
+\section{Suma Geométrica}
+Por inducción sale que $\sum_{i \leq n} r^i = \frac{r^{n+1}-1}{r-1}$, ya que
+\[\frac{r^{n+1}-1}{r-1} + r^{n+1}\]
+\[\frac{r^{n+1}-1}{r-1} + \frac{r^{n+1} \cdot (r-1)}{r-1} \]
+\[\frac{r^{n+1}-1 + r^{n+1} \cdot (r-1)}{r-1} \]
+\[\frac{r^{n+1}-1 + r^{n+1} \cdot r - r^{n+1}}{r-1} \]
+\[\frac{r^{n+2}-1}{r-1}\]
+\end{document}

@@ -1,0 +1,119 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\title {Práctica de Lineal}
+\begin{document}
+	\maketitle
+	\section{Ejercicio 1}
+	$A - \overline{A^T}$.
+
+	Tomamos $T = \{M \in \C^{2 \times 2} \mid M = - M^\dag\}$,
+	y $S = \{M \in \C^{2 \times 2} \mid M = M^\dag\}$
+
+	Notemos que si $(A + A^\dag)^\dag = A^\dag + A$, luego $A + A^\dag \in S$,
+	similarmente $(A - A^\dag)^\dag = A^\dag - A$, luego $A - A^\dag \in T$.
+
+	Entonces $A = \frac{A + A^\dag}{2} + \frac{A - A^\dag}{2}$ es una escritura.
+	\section{Ejercicio 2}
+	$S = \{A \in \R^{2 \times 2} : a_{11} + ka_{12} - ka_{21} = (2k+1)a_{11}
+	+ 2ka_{12} - ka_{22} = 0\}$
+
+	$T = \left\langle
+		\begin{bmatrix}
+			1 & k-2 \\
+			0 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+			0 & k \\
+			1+k-k^2 & 2
+		\end{bmatrix}
+		\begin{bmatrix}
+			1 & k-2 \\
+			k^2 - k & k
+		\end{bmatrix}
+	\right\rangle$
+
+	Tenemos $1 + k(k-2) - 0 = 0 = k^2 - 2k + 1 = (k-1)^2$, luego solo anda $k = -1$.
+	Tenemos:
+	$S = \{A \in \R^{2 \times 2} : a_{11} + a_{12} - a_{21} = 3a_{11}
+	+ 2a_{12} - a_{22} = 0\}$
+
+	$T = \left\langle
+		\begin{bmatrix}
+			1 & -1 \\
+			0 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+			0 & 1 \\
+			1 & 2
+		\end{bmatrix}
+		\begin{bmatrix}
+			1 & -1 \\
+			0 & 1
+		\end{bmatrix}
+	\right\rangle$
+
+	$T = \left\langle
+		\begin{bmatrix}
+			1 & -1 \\
+			0 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+			0 & 1 \\
+			1 & 2
+		\end{bmatrix}
+	\right\rangle$
+
+	Además las ecuaciones son li osea que las dimensiones dan. Y luego alcanza con ver que
+	las matrices cumplen.
+
+	\section{Ejercicio 3}
+	Demostrar $min \{k : A^k = 0\} \leq n$.
+	Notemos $\Im A^i$ para $i = 0\dots n$. Sabemos $\Im A^i \inn \Im A^{i-1}$, y además
+	$\Im A^i = A \times \Im A^{i-1}$, luego las dimensiones tienen
+	que decrecer estrictas o se estancan.
+
+	\section{Matrices de Markov}
+	Una cadena de Markov es una sucesión de eventos donde la probabilidad de uno depende
+	sólo del anterior.
+
+	Si hay $n$ estados posibles, las probabilidades se pueden codificar como una matriz
+	dada por $M_{ij} = p_{i \to j}$.
+
+	Tenemos $M_{ij} \in [0, 1]$, y además $\sum_j M_{ij} = 1$.
+
+	Las matrices que cumplen eso se llaman matrices de Markov.
+
+	\subsection{Prop}
+	Si $M, N \in R^{n \times n}$ son Markov, luego $M \times N$ también es Markov.
+	\[(M \times N)_{ij} = \sum_k M_{ik} \cdot N_{kj}\]
+	\[\sum_j (M \times N)_{ij} = \sum_j \sum_k M_{ik} \cdot N_{kj}\]
+	\[\sum_j (M \times N)_{ij} = \sum_k M_{ik} \sum_j \cdot N_{kj}\]
+	\[\sum_j (M \times N)_{ij} = \sum_k M_{ik} \cdot 1\]
+	\[\sum_j (M \times N)_{ij} = \sum_k M_{ik}\]
+	\[\sum_j (M \times N)_{ij} = 1\]
+
+	Demo alternativa:
+
+	La condición de Makrov implica $M \times 
+	\begin{bmatrix}
+		1 \\
+		\vdots \\
+		1
+	\end{bmatrix} =
+	\begin{bmatrix}
+		1 \\
+		\vdots \\
+		1
+	\end{bmatrix}
+	$. La composición trivialmente mantiene esta condición.
+
+	\subsection{Ejemplo}
+	\[
+	\begin{pmatrix}
+		\frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \frac{1}{4} \\
+		\frac{1}{2} & \frac{1}{2} & 0 & 0 \\
+		\frac{1}{2} & 0 & \frac{1}{2} & 0 \\
+		\frac{1}{2} & 0 & 0 & \frac{1}{2}
+	\end{pmatrix}
+	\]
+\end{document}

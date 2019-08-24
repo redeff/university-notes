@@ -1,0 +1,138 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\begin{document}
+\section{Teorema}
+Para $\V$ finitamente ganerado.
+Si $\langle X \rangle = \V$ y $Y \subseteq \V$ es li, luego $\# X \geq \#Y$.
+
+\subsection{Demo}
+
+Como genera, tenemos $Y_i = \sum \lambda_{ij} X_j$. Consideremos el sist.
+homogeneo dado por:
+
+$\sum_j \lambda_{ij} x_{i} = 0$ para $i < \# X$
+
+Sea $\beta_{i < \# Y}$ una solución del sistema.
+
+Consideremos:
+
+\[\sum_i \beta_i Y_i\]
+\[\sum_i \beta_i \left(\sum_j \lambda_{ij} X_j\right)\]
+\[\sum_i \sum_j \beta_i \lambda_{ij} X_j\]
+\[\sum_j \sum_i \beta_i \lambda_{ij} X_j\]
+\[\sum_j X_j \left(\sum_i \beta_i \lambda_{ij} \right)\]
+\[\sum_j X_j \cdot 0 = 0\]
+
+Contonces tomamos una combinación lineal de los $Y$ y nos dio $0$, luego
+necesariamente $\beta_i = 0$, entonces la única solución del sistema lineal
+es la trivial, por lo que necesariamente tiene más ecuaciones que incógnitas.
+
+\subsection{Corolario}
+Todas las bases de un $\V$ f.g. tienen el mismo cardinal.
+
+Notar que si un conjunto tiene una base finita, entonces todas sus bases son finitas.
+
+Notar que $\dim_\K \V = 0 \iff \V = \{0\}$
+
+\section{Dimensión}
+Si $\V$ un $\K$-es.vec. es f.g.
+la dimensión de $\V$ ($\dim_\K \V$) es el cardinal de cada una de sus bases.
+
+Si $\V$ no es f.g., decimos $\dim_\K \V = \infty$
+
+\section{Espacios Infinitos}
+Si $\V$ no es f.g., luego existe un subconjunto infinito $X \subseteq \V$ que es l.i.
+
+Demo: Vamos a probar que
+\[\forall i \in \N_0 \; \exists X_i \in \V \mid \#X_i = i  \;
+\text{y} \; 
+X_i \; \text{l.i.} \; \text{y} \; X_{i-1} \subseteq X_i
+\]
+Y con eso alcanza porque tomamos $X = \bigcup X_i$
+
+Vamos a demostrar por inducción. Para $i = 0$ tomamos $X_0 = \emptyset$.
+
+Para $n+1$, dado que ya construimos $X_n$ li, queremos construir $X_{n+1}$ li que lo
+contiene.
+
+Es claro que podemos encontrar uno, ya que osinó $X_n$ sería un conjunto li maximal,
+osea que sería una base, entonces $\V$ era finitamente generado.
+
+\section{Dimensión de Subespacios}
+Sea $\V$ tal que $\dim \V = n$. Sea $\U$ subesp. de $\V$. Notemos que $\U$ tiene
+dimensión finita y $\dim \U \leq \dim \V$.
+
+Notemos que si $\U$ fuese de dimensión infinita, podríamos encontrarnos un subconj. de $\U$
+li de tamaño arbitrario. En particular de tamaño $n+1$, entonces habría $n+1$ vectores
+li en $\V$, por qlo que no puede tener dimensión $\dim \V = n$.
+
+Luego $\U$ tiene una base finita $X$. Tendremos que $X$ es li., y además $X \subseteq \V$,
+pero luego necesariamente $\# X \leq \dim \V$ (pq son li), entonces ya está.
+
+\subsection{Si las dimensiones son iguales}
+Supongamos que $\U \subseteq \V$ es subespacio de $\V$ y que $\dim \U = \dim \V$. Qvq
+$\U = \V$
+
+Supongamos que no, luego existe un $v \in \V - \U$, luego tomemos una base $\# B = \dim \V$
+de $\U$, luego $v$ no es generado por $B$, ya que osinó $v \in \U$, luego
+necesariamente $B \cap \{v\}$ es li. Contradicción porque existe un conjunto de $n+1$
+vectores li.
+
+\section{Caracterizando las Bases}
+Sea $\dim \V = n$ y sea $X \subseteq \V \mid \#X = n$. demostremos que:
+\[X \;\text{li} \iff \langle X \rangle = \V \iff X \;\text{base}\]
+
+Supongamos que $X$ es li. Luego notemos que $X$ es base de $\langle X \rangle$, luego
+$\dim \langle X \rangle = n$, luego $\langle X \rangle = \V$.
+
+Supongamos que $\langle X \rangle = \V$. Notemos que para cualquier $Y \subsetneq X$ tenemos
+$\# Y < n$, luego $\langle Y \rangle \neq \V$, ya que osinó $\dim \V \leq n-1$. Entonces
+$X$ es generador minimal.
+
+\section{Agrandando Bases}
+Dado $\V$ de dimensión $\dim \V = n$. Sea $X\inn \V$ li, luego existe $X \inn B \inn \V$
+tal que $B$ base de $\V$.
+
+Sea $\Gamma = \{Y \inn \V \mid X \inn Y \;\text{y}\; Y \;\text{li}\}$.
+Notemos que lis cardinales de $Y \in \Gamma$ están acotados por $n$, luego tomemeos un
+$Y \in \Gamma$ de cardinal máximo.
+
+Si $\# Y = n$ ya estamos.
+Notemos que $Y$ es un conjunto li maximal. Luego es base de $\V$, luego $\# Y = n$, ya
+estamos.
+
+\section{Suma de Subespacios}
+Dado $S, T \inn \V$ subespacios, se define:
+\[S + T = \{s + t \mid s \in S, t\in T\}\]
+
+Demostremos $S + T$ subespacio.
+Notemos
+\begin{itemize}
+	\item $S + T \neq \emptyset$
+	\item dados $v, w \in S + T$ tomemos $s + t = v$, $s' + t' = w$, luego
+		$v + w = (s + s') + (t + t') \in S+T$
+	\item dado $v \in S + T$ y $k \in \K$, notemos $v = s + t$, luego $k \cdot v =
+		k \cdot t + k \cdot s \in S + T$.
+\end{itemize}
+
+Demostremos $S + T = \langle S \cup T\rangle$. Tenemos claramente $S \cup T \inn S + T$,
+además como es subespacio, tenemos $\langle S \cup T \rangle \inn S + T$.
+
+Además claramente todo $v \in S + T$ es una combinación lineal de cosas de $S \cup T$, luego
+$S + T \inn \langle S \cup T \rangle$, y ya estamos.
+
+\section{Teorema de la Dimensión}
+Dados $S, T$ subespacios de $\V$ con $\dim \V = n$, se tiene:
+\[\dim S + T = \dim S + \dim T - \dim S \cap T\]
+
+Sea $B$ base de $S \cap T$. Tomemos $B \inn B_T$ base de $T$ y $B \inn B_S$ base de $S$.
+Tomemos $B_{S + T} = B_S \cup B_T$.
+
+Notemos que $B_S \cap B_T$ es $B$, ya que si hubiera $v \in B_S \cap B_T - B$, tendríamos
+que $B$ no es li maximal ($v$ es li con $B$).
+
+Supogamos además que Hay una combinación lineal de $B_{S+T}$ que da 0, contradicción.
+Entonces $B_{S + T}$ es uba base.
+
+Notemos $\# B_{S + T} = \# B_S + \# B_T - \# B = \dim S + \dim T - \dim S \cap T$
+\end{document}

@@ -1,0 +1,53 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\title{Funciones}
+
+\begin{document}
+	\maketitle
+	\section{Definición}
+	Una función $f : A \to B$ es una relación $f \subseteq A \times B$, donde
+	$A$ se llama dominio y $B$ codominio
+	que cumple $\forall a \in A \; \exists ! b : (a, b) \in f$, que se nota $fa = b$.
+
+	\section{Imagen}
+	Dado $C \inn A$, definimos $f C := \{f c : c \in C\}$. Al conjunto $fA$ se lo llama
+	imagen de $f$ ($\Im f$).
+
+	\section{Preimagen}
+	Dado $D \inn B$, definimos $f^{-1}D = \{a \in A : fa \in D \}$.
+
+	\section{Restricción}
+	Dado $C \inn A$, definimos $f |_C : C \to B = f \cap (C \times B)$.
+
+	\section{Composición}
+	Dadas $f : A \to B$ y $g : B \to C$, definimos $g \circ f : A \to C$ como
+	$(g \circ f) x = g (fx)$.
+
+	\section{Inyectividad}
+	Si $\forall a, b \in \text{Dom} f :  fa = fb \Rightarrow a = b$.
+
+	\subsection{Prop}
+	$f : A \to B$ es inyectiva $\iff \exists g : B \to A : g \circ f = \text{id}_A$.
+
+	\section{Sobreyectividad}
+	$f$ es sobreyectiva si $f A = B$.
+
+	\subsection{Prop}
+	$f : A \to B$ es sobreyectida $\iff \exists g : B \to A : f \circ g = \text{id}_B$.
+
+	\section{Power Set}
+	Se Nota $\mathcal{P}(X) = \{Y : Y \inn X\}$.
+
+	\section{Ejercicio 1}
+	Tenemos $f : \PP (\N) \to \PP (\N) \times \PP (\N)$ definida por $f A =
+	(A \cup \{3\}, A \triangle \{3\})$.
+
+	Demostrar que es inyectiva.
+
+	Definamos $g : \PP(\N) \times \PP(\N) \to \PP(\N)$ como $g (\_, x) = x \triangle \{3\}$.
+	Notemos que $A \triangle \{3\}\triangle \{3\} = A$, luego $g \circ f = \text{Id}_A$,
+	luego es inyectiva.
+
+	Además $(\emptyset, \emptyset)$ no está en la imagen, porque $3$ siempre pertenece
+	al primer elemento del par, por lo tanto no es sobreyectiva.
+\end{document}
