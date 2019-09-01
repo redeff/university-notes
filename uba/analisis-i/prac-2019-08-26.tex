@@ -1,0 +1,57 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\begin{document}
+\section{Ejercicio 1}
+Dado el conjunto $A = \{(x, y) \in \R^2 : -x < y, y + x^2 - 2 \leq 0\}$
+No es abierto ya que el punto $(0, 2)$ está en $A$ pero $(0, 2 + \e) \notin A$
+para todo $\e > 0$.
+
+\includegraphics{para.eps}
+
+Notemos que tampoco es cerrado, ya que $(0, 0) \notin A$, pero $(0, \e) \in A$ para
+cualquier $\e$ suficientemente chico.
+
+\section{Conjuntos Acotados}
+Un conjunto $A \inn \R^n$ es acotado si existe alguna bola $A \inn B_M(0)$
+
+\section{Propiedades}
+\begin{itemize}
+	\item $A^\circ \inn A$
+	\item $A^\circ$ es abierto
+	\item si $A$ abierto luego $A^\circ = A$
+\end{itemize}
+
+\section{Punto de Acumulación (Clausura)}
+Un punto $x \in \R^n$ es un punto de acumulación
+si existe una sucesión $a : \N \to A$ tal que $\lim_{i \to \infty} ai = x$.
+
+Se define al conjunto de puntos de acumulación como $\cl A = \overline A$.
+Es claro que $A \inn \overline A$, y además $\overline A = \cl A$ es cerrado.
+
+\section{Borde}
+el borde de $A$ se define como $\partial A = \cl A - A^\circ$.
+
+Alternativamente, $\partial A = \{ x : \forall \e > 0 : B_r(x) \cap A \neq \emptyset,
+B_r(x) \cap A^C \neq \emptyset
+\}$
+
+\section{Ejercicio 2}
+para los siguientes conjuntos, decidir si son acotados, y hallar el interior,
+la clausura y el borde.
+\begin{itemize}
+	\item $A = [-1, 2)$
+	\item $B = \{(x, y) \in \R^2 : 1 < (x-1)^2 + y^2 < 4\}$
+	\item $C = \{(x, y) : |x| \leq 3\}$
+\end{itemize}
+
+\section{Cónicas}
+Una cónica es una es una curva en $\R^2$ que surge de cortar un cono con un plano.
+Se dividen en:
+\begin{itemize}
+	\item Circunferencia: $x^2 + y^2 = r^2$.
+	\item Elipse: $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$
+	\item Parábola: $y = x^2$
+	\item Hipérbola: $\frac{x^2}{a^2} - \frac{x^2}{b^2} = 1$
+\end{itemize}
+
+\end{document}

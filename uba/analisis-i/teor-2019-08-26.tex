@@ -1,0 +1,36 @@
+\documentclass{article}
+\input{../../style/header.tex}
+\begin{document}
+\section{Subsucesión}
+Dada una sucesión $a : \N \to A$, y un mapeo de indices $f : \N \to \N$
+estrictamente creciente,
+decimos que $a \circ f$ es una subsucesión de $a$.
+
+\section{Conjunto Acotado}
+Un conjunto $A \inn \R^d$ es acotado si está contenido en alguna bola.
+
+\section{Teorema de Bolzano-Weierstrass}
+Para toda sucesión acotada $a : \N \to \R^d$ de puntos existe una subsucesión convergente.
+
+En $\R$, es fácil ya que tiene una subsucesión monótona, que será también acotada.
+
+En $\R^d$ separamos coordenada a coordenada,
+y vamos tomando subsucesiones de subsucesiones,
+hasta que converja en cada coordenada, entonces converje en $\R^d$.
+
+\section {Sucesiones Asintóticas}
+Dadas dos sucesiones $a, b : \N \to \R$, se dicen que dos sucesiones son asintóticas
+($a \sim b$) si $\lim_{i \to \infty} \frac{ai}{bi} = 1$.
+
+Tenemos por ejemplo $p_n \sim n \ln n$.
+
+\section{Límites}
+Dada una función definida en un intervalo punteado de $x_0$,
+
+\[f : (x_0 - \e, x_0 + \e) - \{x_0\} \to \R\]
+
+Se dice 
+
+\[\lim_{x \to x_0} f x = \ell \iff \forall \e > 0 : \exists \delta > 0
+: \forall x : ||x - x_0|| < \delta \Rightarrow ||\ell - f x|| < \e\]
+\end{document}
