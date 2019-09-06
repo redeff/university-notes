@@ -1,0 +1,89 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\begin{document}
+\section{Transformaciones Lineales}
+Dada una $f : \V \to \W$, decimos que es trans. lineal iff $f (a+b) = fa + fb$ y $f (\lambda \cdot a) = \lambda \cdot f a$
+
+\section{Monomorfismo}
+$\tl f$ es \emph{monomorfismo} iff $\forall L \in \V : L \li \To fL \li$
+
+\section{Epimorfismo}
+$\tl f$ es \emph{epimorfismo} iff $\forall L \in \V : \langle L\rangle = \V \To \langle fL\rangle = \W$
+
+\section{Isomorfismo}
+Una transformación lineal $f : \V \to \W$ es \emph{isomorfismo} iff existe $g : \W \to \V$
+tal que $f \circ g = \Id_\W$, y $g \circ f = \Id_\V$.
+
+\subsection{Prop}
+Dada $\tl f$, es isomorfismo iff es bijectiva. Si $f$ es isomorfismo por definición es
+biyectiva.
+
+Supongamos entonces que $f$ tiene una inversa $g$, vamos a probar que $\tl g$.
+Notemos que:
+\[g v + g w = g (f (g v + gw))  = g (f(gv) + f(gw)) = g(v + w)\]
+y
+\[\lambda \cdot (g v) = g(f(\lambda \cdot g(v))) = g (\lambda \cdot f(g(v))) =
+g (\lambda \cdot v)\]
+
+\subsection{Prop}
+Los isomorfismos son epi y mono, luego mandan bases a bases.
+
+\section{Espacios Isomorfos}
+Decimos que $\V$ y $\W$ es pacios vectoriales son \emph{isomorfos} ($\V \cong \W$)
+si hay un simorfismo entre ellos. Es to es claramente una relación de equivalencia.
+
+\subsection{Notación}
+Las funciones $f : A^\N$ con finitos elementos no nulos se escriben $f : A^{(\N)}$.
+
+\section{Prop}
+Dada $\tl f : \V \to \W$, son equivalentes:
+\begin{itemize}
+	\item $\iso f$.
+	\item $\Nu f = \{0\}$ y $\Ima f = \W$.
+	\item $B$ base de $\V$ implica $f B$ base de $\W$.
+\end{itemize}
+
+\section{Dimesión de Espacios Isomorfos}
+Todos los $\K$ espacios vectoriales de dimensión finita $n$ (con $n \in \N$ fijo) son
+isomorfos entre sí.
+
+\section{Teorema de la Dimensión 2.0}
+Dados $\V$ y $\W$ ev, y $\tl f: \V \to \W$ son equivalentes:
+\begin{itemize}
+	\item $\dim \V \in \N$
+	\item $\dim \Nu f, \dim \Ima f \in \N$
+\end{itemize}
+
+Y si se cumple esto tenemos $\dim \V = \dim \Nu f + \dim \Ima f$
+Esto se demuestra ya que podemos tener una base $B = B_I + B_N$ de $\V$ donde $B_N$ es base
+de $\Nu f$. Luego tenemos que $f B_I$ es base de $\Ima f$, ya que para todo $w \in \Ima f$
+nos podemos encontrar $v : fv = w$, y si lo expresamos como combinación lineal de $B$,
+cuando lo pasemos por $f$ todos los elementos de $B$ que no estén en $B_I$ van a ser $0$,
+luego todo vector $w \in \Ima f$ va a set combinación lineal de $f B_I$.
+
+Luego $\dim \V = |B| = |B_I| + |B_N| = \dim \Ima f + \dim \Nu f$
+
+Para el otro lado, supongamos $u_i$ base de $\Nu f$ y $f v_i$ base de $\Ima f$.
+
+Luego para todo $x \in \V$, notemos que
+$fx = \sum \lambda_i \cdot f v_i = f \sum \lambda_i \cdot v_i$, luego
+$f \left(x - \sum \lambda_i \cdot v_i\right) = 0$, pero luego, de forma única,
+$x - \sum \lambda_i \cdot v_i = \sum \mu_i \cdot u_i$, es decir, 
+$x = \sum \lambda_i \cdot v_i + \sum \mu_i \cdot u_i$, de forma única, luego $v \cup u$ es
+una base de $\V$.
+
+\subsection{Corolarios}
+Si $f$ es epi y $\dim \V < \infty$, tenemos que $\dim \W \leq \dim \V$.
+
+Si $f$ es mono y $\dim \W < \infty$, tenemos que $\dim \V \leq \dim \W$.
+
+\section{Dimensiones y Morfismos}
+Si tenemos $\V$ y $\W$ de dimensión finita y una $\tl f : \V \to \W$,
+entonces son equivalentes:
+\begin{itemize}
+	\item $\iso f$
+	\item $\mono f$
+	\item $\epi f$
+\end{itemize}
+Sale trivial por el teorema de la dimensión.
+\end{document}

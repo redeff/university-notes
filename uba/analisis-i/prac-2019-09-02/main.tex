@@ -1,0 +1,53 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\begin{document}
+\section{Límite}
+Dado una función $f : A \to \R$, con $A \inn \R$, luego para todo
+$x_0 \in A$ decimos que:
+\[\lim_{x \to x_0} fx = \ell \iff \forall \e>0 : \exists \delta > 0 :
+\forall x \in A : |x - x_0| < \delta \To |fx - fx_0| < \e\]
+
+\section{Ejemplos}
+Tomemos $fx = x^2$, y demostremos $\lim_{x \to 2} fx = 4$.
+tenemos $|x^2-4| = |x-2| \cdot |x+2|$. Por desigualdad triangular tenemos
+$|x+2| < \delta + 4$, y tenemos $|x-2| < \delta$, luego tenemos:
+$|x^2-4| < (\delta + 4) \cdot \delta$, entonces queremos un $\delta$ tal que
+$(\delta + 4) \cdot \delta < \e$.
+
+Si le pedimos que $\delta < 1$, tomemos $\delta < \min \left\{\frac{\e}{1 + 4}, 1 \right\}< \frac{\e}{\delta + 4}$, y ya estamos.
+
+Alternativamente, usamos que $\delta^2 < \delta$ para $\delta < 1$, entonces tenemos
+$(\delta + 4) \cdot \delta = \delta^2 + 4 \cdot \delta < 5 \cdot \delta$, luego
+tomamos $\delta < \min \left\{\frac{\e}{5}, 1\right\}$ y estamos.
+
+\section{Cero por Acotado}
+Si tenemos $\lim_{x \to x_0} fx = 0$ y $g$ acotada, luego
+$\lim_{x \to x_0} gx \cdot fx = 0$.
+
+\section{L'Hôpital}
+Si $f$ y $g$ con continuas y derivables en un entorno de $c \in \R$, y tenemos
+$f c = g c = 0$ y $g' c \neq 0$. Luego si existe el límite
+$\ell = \lim_{x \to c} \frac{f' x}{g' c}$, luego $\lim_{x \to c} \frac{f c}{g c} = \ell$.
+
+\subsection{Def de Wikipedia}
+Dadas funciones derivables $f$ y $g$ definidas en un entorno punteado $A \inn \R$
+de $a \in \R$, si
+$\lim_{x \to a} fx = \lim_{x \to a} gx = 0$ y $g x \neq 0 \; \forall x \in A$, y se tiene
+$\ell = \lim_{x \to a} \frac{f' x }{g' x } $,
+luego $\ell = \lim_{x \to a} \frac{fx }{gx } $
+
+\section{Límite Multivariable}
+Dado una función $f : A \to \R^m$, con $A \inn \R^n$, luego para todo
+$x_0 \in \overline{A}$ decimos que:
+\[\lim_{x \to x_0} fx = \ell \iff \forall \e>0 : \exists \delta > 0 :
+\forall x \in A : ||x - x_0|| < \delta \To ||fx - fx_0|| < \e\]
+
+\section{Ejemplos}
+Demostremos $\lim_{(x, y) \to (-1, 3)} 2x + y = 1$. Tenemos que encontrar
+$\delta$ tal que $|2x + y - 1| < \e$.
+
+Tenemos $|x+1| < \delta$ y $|y-3| < \delta$.
+$|2x+2| <2 \cdot  \delta$. Sumando las dos últimas por desigualdad triangular tenemos:
+
+$|2x + y - 1| < 3 \cdot \delta$, entonces tomamos $\delta = \frac{e}{3}$, y ya estamos.
+\end{document}

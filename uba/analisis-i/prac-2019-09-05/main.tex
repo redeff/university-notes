@@ -1,0 +1,64 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\begin{document}
+\section{Ejercicio 1}
+Sea $f(x, y) = \frac{x \cdot y}{x^2 + y^2} $.
+Calcular $\lim_{(x, y) \to (0, 0)} fxy$.
+
+Necesitamos hacer un límite por curva, es decir, encontrar
+$\alpha : (0,1) \to \R^2$ tal que $\lim_{t \to 0} \alpha t = (0, 0)$, y evaluar
+$\lim_{t \to 0} f(\alpha t)$ para encontrar un candidato.
+
+Tomemos $\alpha_1 t = (t, 0)$, luego $f(\alpha_1 t) = \frac{0}{t^2} = 0$, luego tenemos
+que $\lim_{t \to 0} f (\alpha_1 t) = 0$.
+
+Si tomamos $\alpha_2 t = (t, t)$, luego $f(\alpha_2 t) = \frac{t^2}{2 \cdot t^2}
+= \frac{1}{2}$,
+luego el límite es $\lim_{t \to 0} f(\alpha_2 t) = \frac{1}{2} $.
+Entonces el límite no existe.
+
+Podemos probar todas las rectas juntas:
+$\alpha_{ab}t = (at, bt)$, luego la composición va a ser $f \circ \alpha_{ab} =
+t \mapsto \frac{a \cdot t \cdot b \cdot t}{(a \cdot t)^2 + (b \cdot t)^2} =
+\frac{a \cdot b}{a^2 + b^2}$, cuyo límite no es constante en $a, b$.
+
+\section{Ejercicio 2}
+Sea $f = x,y \mapsto \frac{x \cdot y^2}{x^2 + y^4} $. Calculemos el
+$\lim_{\to(0, 0)} f$.
+
+Sea $\alpha_{ab} = t \mapsto (a \cdot t, b \cdot t)$. Luego
+$f \circ \alpha = t \mapsto
+\frac{t^3 \cdot a \cdot b^2}{a^2 \cdot t^2 + b^4 \cdot t^4}
+= \frac{a \cdot b^2 \cdot t}{a^2 + b^4 \cdot t^2} $.
+Si $a \neq 0$, luego el límite da $0$, porque lo de arriba tiende a $0$ y lo de abajo no.
+Si $a = 0$ lo de arriba es $0$, y lo de abajo no, luego el límite también es $0$.
+
+Entonces el límite es $0$ para todas las rectas.
+
+tomemos $\alpha t = (t^2, t)$, luego $f \circ \alpha = t \mapsto \frac{t^4}{2t^4}
+= \frac{1}{2} $, luego el límite es $\frac{1}{2} $, entonces no existe el límite.
+
+\section{Ejercicio 3}
+Dada $f = x,y \mapsto \frac{x^2 \cdot y}{x^2 + x - y}$, calcular el límite
+$\lim_{\to(0,0)} f$.
+
+Tomemos $\alpha t = (t, t + t^2 + t^3)$, tenemos
+
+$f \circ \alpha = t\mapsto \frac{t^2 \cdot (t + t^2 + t^3)}{-t^3} = -(1 + t + t^2) = -1$,
+luego el límite por esta curva es $-1$, entonces el límite total no existe.
+
+\section{Composición de Límites}
+Dadas $f : \R \to \R$ y $g : \R^2 \to \R$, si $\lim_{x \to x_0} gx = L$, y si
+$\lim_{x \to L} fx = K$, luego $\lim_{x \to x_0} f (gx) = K$.
+
+\section{Ejercicio 5}
+Calcular limite de $f = x,y \mapsto \frac{1 - \cos (x^2 \cdot y)}{x^2 + y^2} $.
+
+Notamos que $\frac{1 - \cos(x^2 \cdot y)}{x^2 \cdot y} \cdot \frac{x^2 \cdot y}{x^2 + y^2}$.
+
+Queremos acotar por la norma de $||x,y||$ la expresión
+$\left|\frac{x^2 \cdot y}{x^2 + y^2}\right| =
+\frac{x^2 \cdot |y|}{||x,y||^2} \leq
+\frac{||x,y||^2 \cdot ||x,y||}{||x,y||^2} \leq
+||x,y||$
+\end{document}

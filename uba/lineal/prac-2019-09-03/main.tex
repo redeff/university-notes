@@ -1,0 +1,60 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\begin{document}
+\section{Multipllicación a Bloques}
+
+Dadas las matrices
+\[A \in \K^{n \times m}, A' \in \K^{m \times n}\]
+\[C \in \K^{m \times p}, C' \in \K ^ {p \times n}\]
+\[B \in \K^{n \times p}, B' \in \K^{o \times m}\]
+\[D \in \K^{o \times p}, D' \in \K^{p \times o}\]
+
+	Si tenemos las matrices $M = 
+	\begin{bmatrix}
+		A & B \\
+		C & D
+	\end{bmatrix}$, $
+	M' = 
+	\begin{bmatrix}
+		A' & B' \\
+		C' & D'
+	\end{bmatrix}
+	$
+
+	Luego tenemos que $M \times M' =
+	\begin{bmatrix}
+		A A' + B C' & A B' + B D' \\
+		CA' + DC' & CB' + DD'
+	\end{bmatrix}
+	$
+
+\section{Traza}
+Dada una Matriz $A \in \K^{n \times n}$, se tiene $\tr A = \sum_{i < n} a_{ii}$
+
+\section{Ejercicio 4}
+demostrar que $\dim (\Nu f \cap \Ima f) = \dim \Ima f - \dim \Ima f^2$ para $f : \V \to \V$.
+
+
+Tomemos $f' : \Ima f \to \V$, tal que $f' x = fx$, luego, por teo de la dimensión:
+
+$\dim \Ima f = \dim \Ima f' + \dim \Nu f'$. Notemos que $x \in \Ima f' \iff \exists x' \in
+\Ima f : f' x' = f x' = x$, pero como $x' \in \Ima f$, tenemos $f^2 x'' = x$, luego
+$\Ima f' = \Ima f^2$.
+
+Además $\Nu f' = \Nu f \cap \Ima f$, trivialmente, entonces ya está.
+
+\section{Interpolación de Polinomios}
+Dados $(a_i, b_i)$ con $0 \leq i \leq n$, existe un único $p \in \R_n[x]$ tal que
+$pa_i = b_i$
+
+Fijemos los $a_i$, y tomemos
+la transformación lineal $f : \R_n[x] \to \R^n, f p = (p a_i)_i$.
+
+Notemos que es mono ya que si $fp = 0$ luego $p$ evaluado en $n+1$ puntos da $0$,
+luego el polinomio $p$ es $0$, entonces $\Nu f = 0$.
+
+Además notemos que los canónicos en el codominio tienen como preimagen a la base de
+lagrange, entonces también es epi.
+
+Con cualquiera de estas dos cosas, como las dimensiones dan, sabemos que $f$ es iso.
+\end{document}

@@ -1,0 +1,75 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\title{Teórica de Análisis 2019-09-05}
+\begin{document}
+	\maketitle
+	\section{Funciones Contínuas}
+	\subsection{Por Sucesiones}
+	Una función $f : A \to B$ es contíua iff para toda sucesión $x \in \N \to A :
+	\lim_{\infty} x = p$,
+	se fiene que $\lim_{\infty} f \circ x = fp$.
+
+	\subsection{Por coordenada}
+	Supongamos que tenemos
+	\[f : \R^d \to \R^n \sim (d \to \R) \to (n \to \R) \sim
+	n \to (d \to \R) \to \R\]
+
+	Tomando la última definición,
+	la continuidad de $f$, es equivalente a que sean contínuas $fi \forall i \in n$
+
+	\subsection{Propiedades}
+	Suma, difrencia, producto, y división de contínuas es contínua. (división
+	si la de abajo no es cero en el punto)
+
+	\subsection{Composición de Contínuas}
+	Sean $f, g: \R^d \to \R^n$, con $f$ contínua en $p$ y $g$ contínua en $fp$,
+	tenemos que $g \circ f$ es contínua en $p$.
+
+	Supongamos $\lim_{i \to \infty} xi = p$, luego tenemos por continuidad
+	$\lim f \circ x = fp$, luego, por continuidad, $\lim g \circ f \circ x = gfp$,
+	luego $g \circ f$ es contínua.
+
+	\subsection{Suma de Contínuas}
+	Tomémonos $f : \R^d \to \R^n$ y $g : \R^d \to \R^n$ contínuas en $p$,
+	luego tomémonos $t : \R^d \to \R^{2n}, tp = (fp, gp)$, y la función $s(x, y) = x+y$,
+	luego tenemos que $f + g = s \circ t$, y por composición de contínuas, la suma es
+	contínua en $p$.
+
+	\section{Conjuntos Cerrados}
+	Son aquellos conjuntos $A$ tales que $\partial A \inn A$. Equivalentemente,
+	$A$ es cerrado si para toda sucesión $x \in \N \to A$ que converge a
+	algún $L = \lim x$, se tiene $L \in A$.
+
+	\section{Weierstrass}
+	Dado $A \in \R^d$ un compacto (osea cerrado y acotado) y una función contínua
+	$f : A \to \R$, entonces:
+	\begin{itemize}
+		\item $f A \inn \R$ es un conjunto acotado.
+		\item Existe un $x \in A$ tal que $fx = \sup f A$ (osea $f$
+		alcanza su máximo en $A$).
+		\item Equivalntemente, existen $x_1, x_2 \in
+		A : \forall x \in A : fx_1 \leq fx \leq fx_2$
+	\end{itemize}
+
+	Demo:
+
+	Veamos que $f$ está acotada superiormente. Supongamos que no, luego tomemos
+	$x : \N \to A$, donde $\forall n: fx_n > n$. Luego existe una subsucesión
+	$y : \N \to A, y = x \circ \sigma$, $\sigma$ creciente.
+	que converge $\lim y = p$, que por clausura de $A$ sabemos
+	que $p \in A$.
+
+	Además, por continuidad $\lim f \circ y = f \lim y = fp$,
+	pero también $fp = \lim f \circ x \circ \sigma > \lim \sigma >
+	\lim_{n \to \infty} n = +\infty$, absurdo.
+
+	Ahora veamos que se alcanza el máximo. Sea $M = \sup f A$. Si el
+	máximo no se alcanza,
+	considerémonos la función $f' : A \to \R, f' a = \frac{1}{M - fa}$, que
+	va a estar bien definida ya que $fa \neq M$.
+
+	Claramente $f'$ es contínua, entonces tiene una cota $N$, entonces se
+	tiene que $\frac{1}{M - fa} < N$ para algún $N$. pero entonces
+	$M - fa > \frac{1}{N}$, para todo $a$, pero luego $M$ no era supremo ya
+	que está acotada la distancia a $M$.
+\end{document}
