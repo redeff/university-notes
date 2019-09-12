@@ -1,0 +1,112 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\begin{document}
+\section*{Ejercicio 1}
+Dado $f : \K_2[x] \to \K_2[x]$, y $fp = p' + x^2p''$.
+Calcular $\Ima f$, $\Nu f$, y $[f]_E$, y $f^{-1} (2x^2 + 4x -1)$.
+
+Notemos que $
+[f]_E = 
+\begin{bmatrix}
+	0 & 1 & 0 \\
+	0 & 0 & 2 \\
+	0 & 0 & 1 \\
+\end{bmatrix}
+$
+
+Notemos que $\Ima [f]$ es el generado por las columnas, luego para sacar la
+$\Ima f$, lo evaluamos en la canónica y estamos.
+
+Para calcular la preimagen de $4x^2 + 4x - 1$, traduciéndolo a $\K^3$,
+hay que resolver el sistema:
+
+\[
+\begin{bmatrix}
+	0 & 1 & 0 \\
+	0 & 0 & 2 \\
+	0 & 0 & 1 \\
+\end{bmatrix} x = 
+\begin{bmatrix}
+	-1 \\ 4 \\ 4
+\end{bmatrix}
+\]
+
+Que si lo resolvemos tenemos que $x \in (\Nu [f] = \langle (1 \; 0\; 0) \rangle
+)+ (0 \; -1 \; 2)$.
+Para sacarlo en $\K_2[x]$, tenemos que son los de la pinta $px = \lambda - x +
+2x^2$.
+
+\section*{Matrices equivalentes y semejantes}
+Decidir si, dados
+$
+A = 
+\begin{bmatrix}
+	-4 & -6 \\
+	2 & 3 \\
+\end{bmatrix}
+\quad
+B = 
+\begin{bmatrix}
+	4 & 3 \\
+	1 & 2 \\
+\end{bmatrix}
+$, tenemos $A \sim B$.
+
+Notemos que $\rg A = 1$, y $\rg B = 2$, entonces no se puede.
+
+\section*{Ejercicio 3}
+Dados
+$
+A=
+\begin{bmatrix}
+	7&1&2\\
+	0 & 3 & -1 \\
+	-3 & 4 & -2 \\
+\end{bmatrix}
+\quad
+B=
+\begin{bmatrix}
+	1&0&1\\
+	0 & 2 & 1 \\
+	1 & 1 & 1 \\
+\end{bmatrix}
+$
+
+decidir si $A \sim B$, y si existen $\tl f$ tal que $[f]_\BB = A$ y que
+$[f]_{\BB'\BB''} = B$.
+
+\section*{Condiciones necesarias para Semejanza}
+Si dos matrices $A, B$ tienen $A \sim B$, luego $\rg A = \rg B$, y $\tr A = \tr
+B$. Notemos que la vuelta no vale!
+
+\section*{Matrices Equivalentes}
+Dos matrices $A, B \in \K^{n \times m}$ son equivalentes sii $\exists C \in
+\GL \; \K^n, D \in \GL \; \K^m$ tal que $CAD = B$.
+
+Además, si $A, B$ inversibles, notemos que:
+$
+A^{-1}AB = B
+$, entonces todas las inversibles son equivalentes.
+
+\section*{Ejercicio 4}
+\subsection*{Parte a}
+Sea $A \in \K^{n \times m}, B \in \GL \; \K^n$. Probar que $\rg BA = \rg A$, y
+lo mismo para el otro lado.
+
+Si tomamos $f x = Ax, gx = Bx$, luego como $B$ inversible notemos $\iso g$,
+luego $\dim f \K^m = \dim g (f \K^m) = \dim \Ima (g \circ f)$
+
+\subsection*{Parte b}
+Sea $A \in \R^{4 \times 4}$ de rango $2$, demostrar que existen $B \in \R^{4
+\times 2}, C \in \R^{2 \times 4}$ tales que $A = BC$
+
+Tomamos $\BB = \{b_1, b_2, b_3, b_4\}$ base de $\R^4$, conde $\langle b_1, b_2
+\rangle = \Nu A$.
+
+Luego tomemos $g b_1 = g b_2 = 0$, y $g b_3 = (1, 0)$, $g b_4 = (0, 1)$, luego
+tomamos $h (1, 0) = f b_3$, $h (0, 1) = f b_4$. Notemos que $h \circ g$
+coincide con $f$ en la base $\BB$, luego ya estamos.
+
+Alternativamente, podemos tomar $h = f|^{\Ima f}$, y $g = \id|_{\Ima f}$, luego
+tenemos que $f = g \circ h$
+\end{document}

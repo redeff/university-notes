@@ -1,0 +1,143 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\begin{document}
+\section*{Lagrange}
+Dada $f: [a, b] \to \R$ continua y derivable, tenemos que existe $c$ tal que:
+\[
+	\frac{fa - fb}{a-b}  = f'c
+\]
+\section*{Cauchy}
+Dadas $f, g: [a,b] \to \R$, contínuas en el cerrado, derivables en el aiberto,
+luego existe $c$ tal que:
+\[
+	\frac{fa-fb}{ga - gb} = \frac{f'c}{g'c} 
+\]
+Para evitar problemas con el $0$, esto lo escribo como:
+\[
+	(fa-fb) \cdot g'c = (ga - gb) \cdot f'c
+\]
+
+Demo: tomamos \[hx = 
+	(fa-fb) \cdot gx - (ga - gb) \cdot fx
+	\]una combinación lineal de $f$ y $g$. Notemos que \[
+	h'x = (fa-fb) \cdot g'x - (ga - gb) \cdot f'x
+\]
+Entonces tenemos que $h$ es contínua y derivable.
+
+Notemos que $ha = -fb \cdot ga + gb \cdot fa$, y $hb = gb \cdot fa - fb \cdot
+ga$, luego $ha = hb$, entonces por \emph{Rolle} estamos.
+
+\section{Taylor}
+Dado $f: (a-\e, a+\e) \to \R$ de clase $f \in \CC^k$, decimos:
+$P_{k-1}x = \sum_{i < k} \frac{f^{(i)}a}{i!}  \cdot (x-a)$, y nos queda
+$fx = R_{ka}x + P_{k-1}x$, donde
+$R_{ka}x = \frac{f^{(k)}c}{k!}(x-a)^k$ para algún $c \in (a, b)$.
+
+Demo: notemos que $R_{ka}^{(i)}a$ es $0$ para todo $i < k$. Y si tomamos
+$Gx = (x-a)^k$, luego también $G^{(i)}a = 0$ para todo $i < k$.
+
+Además, notemos que $G^{(k)}a = k!$, y $R^{(k)}a = f'a$.
+
+Tomemos $\frac{Rx}{Gx} = \frac{Rx - Ra}{Gx-Ga} = \frac{R'c_1}{G'c_1} $ para
+algún $c_1$.
+
+Similarmente $\frac{R'c_1}{G'c_1} = \frac{R'c_1 - R'a}{G'c_1-G'a} =
+\frac{R''c_2}{G''c_2} $,
+
+así siguiendo, tenemos que $\frac{Rx}{Gx} = \frac{R^{(k)}c_k}{G^{(k)}c_k}$ para
+algún $c_k \in (a, x)$, y tenemos:
+
+\[
+	\frac{Rx}{Gx} = \frac{f^{(k)}c}{k!} \iff Rx = \frac{f^{(k)}c}{k!} \cdot
+	(x-a)^k
+\]
+Para algún $c \in (x, a)$.
+
+Esto implica $|Rx| \leq \frac{\min \{f^{(k)}c\}_{c \in (a,x)}}{k!} \cdot
+(x-a)^k$.
+
+Notemos que $\lim_{k \to \infty} \frac{(x-a)^k}{k!} = 0$, luego si podemos
+acotar las derivadas de $f$ en $(a, x)$, tenemos que el límite de los
+polinomios es la función en cada punto.
+
+Por ejemplo, para la unción $\sin$, tenemos que el taylor cuadrático tiene $R_2
+= \left|\cos c \cdot \frac{x^3}{3!}\right| \leq \frac{|x|^3}{3!}$, es decir,
+$\sin x = x + \OO(x^3)$
+
+\section*{Tangentes}
+Cuando tomábamos la definición de derivada, teníamos que se definía por el
+límite:
+
+\[
+	\lim_{x \to p} \left|\frac{fx-fp}{x-p} -f'p\right| = 0
+\]
+
+Que expresado en función a la recta tangente tenemos:
+\[
+	\lim_{x \to p} \left|\frac{fx-[fp + (x-p) \cdot f'p]}{x-p}\right| = 0
+\]
+
+Donde $[fp + (x-p) \cdot f'p]$ es la recta tangente.
+
+Equivalentemente, $fx = fp + (x-p) \cdot f'p + \oo (x-p)$
+
+\section*{En varias Dimensiones}
+Tomemos una $f : A \to \R$, con $A$ un abierto de $\R^n$. Y sea $p \in A$.
+
+Vamos a querer buscar un plano tangente a la gráfica de $f$ en $(p, fp)$.
+
+El plano va a ser parametrizado por $l = (x \mapsto fp
++ f'p \cdot (x-p)) \in \R^n \to \R$, donde $(.)$ es el
+producto escalar y $f'p \in \R^n$.
+Entonces queremos que el error tienda a $0$, es decir:
+
+\[
+	\lim_{x \to p} \frac{fx-lx}{||x-p||} = 0 \iff
+\]
+
+\[
+	\lim_{x \to p} \frac{fx-[fp + (x-p) \cdot f'p]}{||x-p||} = 0
+\]
+
+si tomamos una dirección específica $d \in R^n$, podemos tomar el límite en la
+recta de la forma $x = p + \lambda \cdot d$
+dirección, es decir:
+\[
+	\lim_{\lambda \to 0} \frac{f(p + \lambda \cdot d)-
+	l(p + \lambda \cdot d)}{|\lambda| \cdot ||d||} = 0 \iff
+\]
+
+\[
+	\lim_{\lambda \to 0} \frac{f(p + \lambda \cdot d)-
+	[fp + (\lambda \cdot d) \cdot f'p]}{|\lambda| \cdot ||d||} = 0 \iff
+\]
+
+Si tomamos $d = (1, 0)$, tenemos la derivada parcial, que se nota
+\[\frac{\partial f}{\partial x_i} (p) =
+	\lim_{\lambda \to 0} \frac{f(p + \lambda \cdot e_i)-
+	fp}{\lambda}
+\]
+
+\section*{Diferenciabilidad}
+Dada una función $f : A \to \R$, y $p \in A$, se dice $f$ \emph{diferenciable}
+en $p$ sii:
+\begin{itemize}
+	\item existen las derivadas parciales $\frac{\partial f}{\partial x_i}(p)$
+	\item $
+			\lim_{x \to p} \frac{fx-\left[fp + \left(\frac{\partial f}{\partial x_i}
+			(p)\right)_i \cdot (x-p)\right]}{||x-p||} = 0
+		$
+\end{itemize}
+Vimos que para que un plano tangente ande, necesariamente $f' p =
+\left(\frac{\partial f}{\partial x_i} (p)\right)_i$.
+
+\section*{Derivada Direccional}
+Dado $d \in \R^n$, se define:
+
+\[
+	\frac{\partial f}{\partial d}(p) =
+	\lim_{\lambda \to 0} \frac{f(p + \lambda \cdot d)-
+	fp }{|\lambda| \cdot ||d||}
+\]
+
+\end{document}

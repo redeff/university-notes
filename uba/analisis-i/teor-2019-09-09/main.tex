@@ -1,0 +1,92 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\begin{document}
+	\section{Bolzano}
+	Si se tiene una función contínua $f : [a, b] \to \R$, y se cumple $fa \cdot
+	fb \leq 0$, luego existe $c \in [a, b] : fc = 0$
+
+	\subsection{Equivalente Teorema de los Valores Intermedios}
+	Dada una función contínua $f : [a, b] \to \R$, con $fa < fb$, luego tenemos
+	$[fa, fb] \inn f [a, b]$
+
+	\subsection{Lema}
+	Sea $f : \R \to \R$ contínua, luego si $fx > 0$ para algún $x$, luego existe
+	un entorno alrededor de $x$ donde la función es positiva.
+
+	Por continuidad, notemos que la preimagen de $\left(\frac{fx}{2}, \frac{3 \cdot
+	fx}{2}\right)$ es un abierto, contiene a $x$, y además las imágenes son
+	todas positivas, luego ya estamos.
+
+	\subsection{Demo con Binary Search}
+	WLOG $fa < 0$ y $fb > 9$
+	Si $fa \cdot fb = 0$, luego tomo $x = a$ o $x = b$ y estoy.
+	Definamos $a_0 = a$, $b_0 = b$, y $c_i = \frac{a_i + b_i}{2}$.
+	Podemos asumir que en ningún momento $fa_i$, $fb_i$, o $fc_i$ es
+	cero osinó ya estamos. Definimos:
+	\[b_{i+1} = 
+		\begin{cases}
+			b_i & \text{Si $c_i < 0$} \\
+			c_i & \text{Osinó}
+		\end{cases}
+	\]\[
+	a_{i+1} = 
+		\begin{cases}
+			a_i & \text{Si $c_i > 0$} \\
+			c_i & \text{Osinó}
+		\end{cases}
+	\]
+
+	Por inducción, $fa_i < 0$ y $fb_i > 0$; y también
+	notemos que $a_i < b_i$, y además que $b_i - a_i = 2^{-i}
+	\cdot (b - a)$, ya que en cada paso se divide en dos su distancia.
+
+	Además notemos que $a_i$ es creciente y $b_i$ es decreciente.
+
+	Entonces sea $e = \lim a$. Pero notemos que \[|b_i - e| = |(b_i - a_i) +
+	(a_i - e)| \leq |b_i - a_i| + |a_i - e|\] Y notemos que ambos sumandos
+	tienden a $0$, luego $\lim |b_i - e| = 0$, por lo que $\lim b = e$
+
+	Notemos que si $fe \neq 0$, hay un entorno de $e$ con imágenes de un mismo
+	signo que $fe$. Pero como tanto $a_i$ como $b_i$ se meten en ese entorno,
+	y los $a_i$ son todos negativos y los $b_i$ son todos positivos,
+	contradicción. Luego $fe = 0$
+
+	\section{Arcoconexo}
+	Un conjunto $C \inn \R^n$ es arcoconexo sii para cualquiera $p, q \in C$, 
+	los puedo unir por una curva contínua dentro de $C$. Es decir: 
+	\[\forall p, q \in C : \exists \alpha \cont
+	: [0; 1] \to C : \alpha 0 = p, \alpha 1 = q\]
+	\section{Bolzano Multidimensional}
+		Dado $C \inn \R^n$ arcoconexo, y una función contínua $f : C \to \R$, y
+		dos puntos $p, q \in C$ con $fp < 0$ y $fq > 0$, luego existe algún $x
+		\in C$ tal que $fx = 0$
+
+		Demo: por arcoconectividad, tenemos alguna $\alpha \cont : [0, 1] \to C$, con
+		$\alpha 0 = p$, $\alpha 1 = q$, entonces por bolzano en una varibale en
+		$f \circ \alpha$, ya estamos.
+
+	\section{Derivadas}
+	Dada una función $f : \R \to \R$, decimos que \emph{La derivaba de f en x},
+	notada como $f'x$, se define por:
+	\[f'x = \lim_{h \to 0} \frac{f(x+h) - fx}{h} \]
+
+	\section{Principio de Fermat}
+	Dada una función $f : [a, b] \to \R$, y algún $c \in (a, b)$, con $f$
+	derivable en $c$, si $f$ tiene
+	un máximo o un mínimo local en $c$ entonces tenemos
+	$f'c = 0$.
+
+	Demo: Supongamos que hay un mínimo local en $c$, luego se tiene que en un
+	entorno de $c$, se tiene $fc < f(c+h)$, pera todo $h < \delta$ para algún
+	$\delta$.
+
+	Luego tenemos:
+
+	$\lim_{h \to 0^+} \frac{fc - f(c+h)}{h} \geq 0$, y
+	$\lim_{h \to 0^-} \frac{fc - f(c+h)}{h} \leq 0$, luego si el límite existe,
+	debe ser $0$.
+
+	\subsection{Punto de Ensilladura}
+	Es un punto en una función donde la derivada es $0$, pero no es un extremo.
+	
+\end{document}

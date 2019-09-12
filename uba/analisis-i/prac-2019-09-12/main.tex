@@ -1,0 +1,104 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\begin{document}
+\section*{Ejercicio 1 (Continuidad)}
+tenemos la función dada por
+\[
+	fxy
+	\begin{cases}
+		= \frac{(y-2x) \cdot \sin (x \cdot y)}{yx^2+x} &
+		\text{Si $xy \neq -1, x \neq 0$}
+		\\ \\
+		= y^2 & \text{cc}
+	\end{cases}
+\]
+
+Queremos ver que:
+\[
+	\lim_{(x, y) \to (0, a)} \frac{(y-2x) \cdot \sin (x \cdot y)}{yx^2+x}
+	= a^2 \iff
+\]
+\[
+	\lim_{(x, y) \to (0, a)} \frac{(y-2x) \cdot \sin (x \cdot y)}{x(yx+1)}
+	=
+\]
+Si $y \neq 0$, pero ya vimos esa curva.
+\[
+	\lim_{(x, y) \to (0, a)} \frac{(y-2x) \cdot \sin (x \cdot y)}{xy(yx+1)}
+	\cdot \frac{xy}{x} 
+	=
+\]
+\[
+	\lim_{(x, y) \to (0, a)} \frac{(y-2x)}{yx+1}
+	\cdot y
+	= a^2
+\]
+
+Ahora veamos
+\[
+	\lim_{(x, y) \to (a, -\frac{1}{a} )}
+	\frac{(y-2x) \cdot \sin (x \cdot y)}{yx^2+x}
+	= \frac{1}{a^2}
+\]
+
+Como $-\frac{1}{a} -2a = 0 \iff -1 - 2a^2 = 0 \iff a^2 = -\frac{1}{2}$, tenemos
+que el límite no se indetermina y es $\infty$.
+
+\section*{Ejercicio 2}
+Definimos \[
+	f(x,y) = 
+	\begin{cases}
+		\frac{[1-\cos(x-1)] \cdot (y^2 - 4)}{(x-1)^2 + e^{x-1}(y-2)^2} 
+		\\ \\
+		1 & \text{Osinó}
+	\end{cases}
+\]
+
+Tomamos el límite hacia $(1, 2)$ donde $x = 1$, luego tenemos:
+\[
+	\frac{[1-\cos(1-1)] \cdot (y^2 - 4)}{(1-1)^2 + e^{1-1}(y-2)^2} 
+\]
+\[
+	\frac{0 \cdot (y^2 - 4)}{1 \cdot (y-2)^2} = 0
+\]
+
+Luego si existe el límite es $0$, veámoslo:
+
+\[
+	\frac{[1-\cos(x-1)] \cdot (y^2 - 4)}{(x-1)^2 + e^{x-1}(y-2)^2} =
+\]
+\[
+	\frac{[1-\cos(x-1)]}{(x-1)^2} \cdot \frac{(x-1)^2(y+2)(y-2)}{(x-1)^2
+	+ e^{x-1}(y-2)^2}
+\]
+Notemos que a partir de un punto, $e^{x-1} > 0.5$
+\[
+	\frac{[1-\cos(x-1)]}{(x-1)^2} \cdot \frac{(x-1)^2(y+2)(y-2)}{(x-1)^2
+	+ e^{x-1}(y-2)^2} \leq
+\]
+\[
+	\frac{[1-\cos(x-1)]}{(x-1)^2} \cdot \frac{(x-1)^2(y+2)(y-2)}{(x-1)^2
+	+ 0.5(y-2)^2} \leq
+\]
+\[
+	\frac{[1-\cos(x-1)]}{(x-1)^2} \cdot \frac{(x-1)^2(y+2)(y-2)}{0.5(x-1)^2
+	+ 0.5(y-2)^2} =
+\]
+\[
+	\frac{[1-\cos(x-1)](y+2)}{(x-1)^2} \cdot \frac{(x-1)^2(y-2)}{0.5||P - (1,
+	2)||^2} \leq
+\]
+\[
+	\frac{[1-\cos(x-1)](y+2)}{(x-1)^2} \cdot \frac{||P - (1,2)||^3}{0.5||P - (1,
+	2)||^2} \leq
+\]
+\[
+	\frac{2[1-\cos(x-1)](y+2)}{(x-1)^2} \cdot ||P - (1,2)||
+\]
+
+y como $\lim\frac{2[1-\cos(x-1)](y+2)}{(x-1)^2} = 2$, tenemos
+\[
+	\lim \frac{2[1-\cos(x-1)](y+2)}{(x-1)^2} \cdot ||P - (1,2)|| = 0
+\]
+Y estamos.
+\end{document}

@@ -1,0 +1,82 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\begin{document}
+\section{Ejercicio 1}
+Sea $\K-\tl f: \V \to \W$. $\dim \V = n$, $\dim \W = m$. Demostrar que existen
+$B, B'$ bases tal que
+\[
+	[f]_{BB'} = 
+	\begin{pmatrix}
+		0 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 1 & 0 & 0 \\
+		0 & 0 & 0 & 1 & 0 \\
+	\end{pmatrix}
+\]
+
+Tomo una base $v_{i \leq k}$ de $\Nu f$, y la extendemos a una base $v_{i \leq
+n}$ de $\V$.
+
+Notemos que si tomamos $w_i = f v_{k < i \leq n}$, estos son li, ya que sinó
+habría una combinación lineal que dá 0, y por linearidad habría una combinación
+lineal de los $v_{k < i \leq n}$ está en el núcleo $\Nu f$.
+
+Entonces si tomamos $w_i = f v_i$ para $k < i \leq n$, y completamos la base
+con cosas li, entonces ya estamos.
+
+\section{Ejercicio 2}
+Sea $p: \V \to \V$. Sea $S \inn \V$ sev. tal que $\Ima p \inn S$. Demostrar
+que $\Ima p = S \iff \Nu p \cap S = \{0\}$
+
+Notemos que la parte $(\To)$ es trivial. Tomemos $v \in \Nu f \cap \Ima f$.
+Sea $x : fx = v$. Notemos $v = fx = f^2x = f(fx) = fv = 0$, luego $v = 0$.
+
+Notemos además que para $(\From)$, tenemos que $\Nu p + \Ima p = \V$, pero
+$\Ima f \inn S$, luego $\Nu p + S = \V$, pero como la intersección es $0$, por
+lo que están en suma directa $\Nu f \oplus S$.
+
+Por dimensión $\dim S = n - \dim \Nu f = \dim \Ima f$, luego $S = \Ima f$.
+
+\section{Ejercicio 3}
+Sea $S = \langle (1 \;0 \;-1 \;1), (0 \;1 \;0 \;0) \rangle$
+Definir $p: \R^4 \to \R^4$, $p$ proyector tal que $p \neq 0$ y $\Ima p \inn S$
+y $\Nu p \cap S \neq \{0\}$.
+
+Tomemos $p (0\;1\;0\;0) = (0\;1\;0\;0)$, y $pE = 0$ donde $E$ es uno de los otros
+cańonicos.
+
+\section{Ejercicio 4}
+Sea $\V$, $S, T \inn \V$, $S\cap T = \{0\}$, y tenemos:
+
+$f : S \to \V$ mono
+
+$g : \V \to T$ epi
+
+$\Nu g = \Ima f$
+
+Demostrar $\V = S \oplus T$.
+
+Notemos que $\dim S = \dim S - \dim \Nu f = \dim \Ima f = \dim \Nu g =
+n - \dim \Ima g = n - \dim T$, entonces ya estás.
+
+\section{Ejercicio 5}
+Sea $f : \R^9 \to \R^9 : \dim \Ima f = 6, \Nu f \inn \Ima f$.
+
+Hallar $\dim \Ima f^2$
+
+\section{Ejercicio 6}
+Sea $f : \V \to \W$, $g : \V \to \U$, todos los espacios de dimensión finita.
+Probar que son equivalentes:
+\begin{itemize}
+	\item Existe $h : \W \to \U$ tal que $h \circ f = g$
+	\item $\Nu f \inn \Nu g$
+\end{itemize}
+
+$a \To b$ es trivial.
+
+$b \To a$, tomemos base $B = B_f \cap B_g \cap B_v$ de $\V$, tal que $B_f$ es
+base de $\Nu f$ y $B_f \cap B_g$ es base de $\Nu g$.
+
+Notemos que $f (B_g \cap B_v)$ es base de $\W$. Luego tomemos $h(fB_g) = 0$ y
+$h(fB_v) = gB_v$.
+\end{document}

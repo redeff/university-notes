@@ -1,0 +1,75 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+
+\begin{document}
+\section*{Expresar en Base}
+Dado $v \in \V$, y una base $\BB_\V$, tenemos que $(v)_{\BB_\V} = (\lambda_i)
+\iff \sum \BB_{\V_i} \cdot \lambda_i = v$
+
+\section*{Igualdad}
+Si tenemos $f, g \in \Hom \V \; \W$, luego $f = g \iff [f]_{\BB_\V\BB_\W} =
+[g]_{\BB_\V\BB_\W}$
+
+\section*{Composición}
+Si $f : \U \to \V$ y $g : \V \to \W$, luego $[g \circ f] = [g] \times [f]$
+
+\section*{Corolario}
+Tenemos $\V$, $\W$ de dimensiones finitas respectivamente; y $f \in \Hom \V
+\; \W$. Luego $f \iso \iff [f]_{\BB_\V\BB_\W}$ es inversible.
+
+\section*{Cambio de Base}
+Tomemos dos bases $\BB_\V$ y $\BB_\V'$ de $\V$, con $\dim \V = n$, y lo mismo
+para $\W$ de dimensión $m$. Tenemos que:
+\[[f]_{\BB'_\V\BB'_\W} = C(\BB_\W, \BB'_\W) \times [f]_{\BB_\V\BB_\W}
+\times C(\BB_\V, \BB'_\V)^{-1}\]
+
+Donde $C(\AA, \BB) = [\id]_{\AA\BB}$.
+
+\section*{Definición}
+Dados $A, B \in \K^{n \times n}$, decimos que $A, B$ son semejantes sii:
+\[A \sim B \iff \exists C \in \GL\K^n : A = C \times B \times C^{-1}\]
+
+\section*{Interpretación de Semejanza}
+Decimos que $A \sim B \iff \exists f \in \Hom \K^n \; \K^n :\exists \BB, \BB'
+: [f]_\BB = A, [f]_{\BB'} = B$.
+
+Demo: Trivial por cambio de base con $\V = \W$.
+
+\section*{Rango de una Matriz}
+Si tenemos una matriz $A \in \K^{n \times m}$, y una $f$ tal que $[f] = A$,
+luego decimos que: $\rg A = \rg [f] = \dim \Ima f$
+
+\subsection*{Dimensión de Soluciones de un Homogéneo}
+Si tenemos $A \in \K^{m \times n}$, luego tenemos $\dim \{x : Ax = 0\} = n -
+\rg A$.
+
+\section*{Sistemas no Homogéneos}
+Si tenemos el sistema lineal $Ax = b$, entonces tiene solución sii $\rg A = \rg
+(A \mid b)$.
+
+Notemos que $\rg A = \rg (A \mid b) \iff \dim \Ima A = \dim \Ima
+(A | b) \iff \dim \langle A_{*i} \rangle = \dim (\langle A_{*i}
+\rangle + \langle b \rangle) \iff$ b es combinación lineal de las columnas de
+$A \iff Ax = b$ tiene solución.
+
+\section*{Matrices Inversibles}
+Demostremos que dada $A \in \K^{n \times n}$, luego $A \times B = I \To B
+\times A = I$.
+
+Tomemos $f : \K^{n \times n} \to \K^{n \times n}, fX = AX$. Luego notemos que
+$\epi f$, ya que $f(B \times C) = A \times (B \times C) = (A \times B) \times C
+= C$.
+
+Luego por dimensión, tenemos $\iso f$. Pero además $f(B \times A - I) = A \times (B
+\times A - I) = A \times B \times A - A = I \times A - A = 0$, luego $B \times
+A = I$
+
+\section*{Sistemas de Ecuaciones}
+\begin{enumerate}
+	\item $A$ inversible
+	\item $Ax = 0$ tiene solución única
+	\item $Ax = b$ tiene única solución
+	\item $Ax = b$ tiene al menos una solución
+	\item $\rg A = n$
+\end{itemize}
+\end{document}

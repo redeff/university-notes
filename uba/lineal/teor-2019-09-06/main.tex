@@ -1,0 +1,133 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\begin{document}
+\section{Proyectores}
+Una transformación lineal $f: \V \to \V$ se duce \emph{proyector} sii $f^2 =
+f$.
+
+\subsection{$\oplus$ son proyectores}
+Dados dos ev en suma directa $S\oplus T = \V$, 
+luego para cada $v \in \V$ existe una única escritura $v = v_t + v_s$,
+donde $v_s \in S, v_t \in T$.
+
+Si tomamos \[f v =
+s : s + t = v, s \in S, t \in T\].
+
+Notemos que $f$ es lineal, es trivial.
+
+Notemos además que:
+\begin{itemize}
+	\item $S \inn \Ima f$ ya que para $s \inn S$ tenemos $fs = s$
+	\item $\Ima f \inn S$ ya que si $fv$ está, por definición en $S$.
+	\item $\Nu f \inn T$ ya que si $t \in T$, $f t = 0$.
+	\item $T \inn \Nu F$ por definición.
+\end{itemize}
+
+Es proyector ya que $f (s+t) = fs + ft = s$, y $f^2 (s+t)
+= f(f(s+t)) = fs = s$.
+
+Esta proyección se denomina \emph{proyección sobre el subespacio S},
+y se denota $f_{S}$.
+
+\subsection{Proyecciones son $\oplus$}
+Dado un proyector $f : \V \to \V$, supongamos que $v \in \Nu f \cap \Ima f$.
+Tenemos $f v = 0$, y a su vez $f x = v$ para algún $x$.
+
+Notemos que $v = fx = f^2 x = f (fx) = f v = 0$, luego $v = 0$. Entonces la
+intersección entre $\Nu f \cap \Ima f = \{0\}$.
+
+Notemos además que $\Nu f + \Ima f = \V$, ya que podemos escribir $v = (v - fv)
++ fv$, y $f (v-fv) = fv - f(fv) = fv - fv = 0$, osea que $v - fv \in \Nu f$, y
+además $fv$ claramente está en la imagen.
+
+Luego tenemos que $\Nu f \oplus \Ima f = \V$.
+
+\subsection{Identidad como suma}
+Se tiene $\Id_{\V} = f_{S} + f_{T}$ para cualquiera $\V = S + T$.
+
+Notemos además que si $f: \V \to \V$ proyector, se tiene $(\id - f) \circ (\id
+- f) = \id^2 - \id \circ f - f \circ \id + f^2 = \id - f - f + f = \id - f$.
+
+\subsection{Proyectores Triviales}
+Notemos que la transformación nula $\ze = x\mapsto 0$ y $\id = x \mapsto x$ son
+proyectores.
+
+\section{Espacio Hom}
+Dados $\V$, $\W$ $\K$-espacios vectoriales, se denomina:
+\[\Hom_\K(\V, \W) = \{\tl f : \V \to \W\}\]
+Al conjunto de las transformaciones lineales entre $\V$ y $\W$.
+
+Se tiene que $\Hom_\K(\V, \W)$ es un $\K$-espacio vectorial.
+
+\subsection{Dimensión del Espacio Hom}
+Sea $\dim \V = n$ y $\dim \W = m$, luego vamos a ver que $\dim \Hom(\V, \W) = n
+\cdot m$
+
+\subsection{Isomorfismo $\Hom_\K(\V, \W) \sim \K^{\dim \W \times \dim \V}$}
+Tomemos una base $B = v_{i < n}$ de $\V$ y sea $B' = w_{i < m}$ una base de $\W$.
+Para cada $\tl f : \V \to \W$, asociémosle una matriz en $\K^{m \times n}$.
+
+Para cada $i < n$, sean $\lambda_{ji}$ tal que $fv_i = \sum \lambda_ji w_j$.
+Contruyámonos entonces la matriz que se nota \[ [f]_{BB'} = 
+\begin{pmatrix}
+	\lambda_{11} & \lambda_{12} & \dots & \lambda_{1n} \\
+	\lambda_{21} & \lambda_{22} & \dots & \lambda_{2n} \\
+	\vdots & \vdots & \ddots & \vdots \\
+	\lambda_{m1} & \lambda_{m2} & \dots & \lambda_{mn} \\
+\end{pmatrix}
+\]
+
+\subsection{Proyectores como Matrices}
+Si tenemos $f = f_{S}$ con $\V = S + T$, y una base de $\V$ dada por $B_\V =
+B_S \cap B_T$ con $n = |B_S|$, luego veamos que:
+\[
+	[f]_{BB} = 
+	\begin{pmatrix}
+		\Id_{n \times n} & 0 \\
+		0 & 0 \\
+	\end{pmatrix}
+\]
+
+\section{Derivadas}
+Sea $V = \K[x]_{\leq n}$, y tomemos $fp = p'$, luego
+\[
+	[f]_{EE} = 
+	\begin{pmatrix}
+		0 & 1 & 0 & \dots & 0 \\
+		0 & 0 & 2 & \dots & 0 \\
+		0 & 0 & 0 & \dots & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & n-1 \\
+		0 & 0 & 0 & \dots & 0 \\
+	\end{pmatrix}
+\]
+
+\section{Prop}
+Dados $\V$, $\W$ una $\tl f : \Hom(\V, \W)$ y bases $B$ de $\V$ y $B'$ de $\W$,
+se tiene que \[[fv]_{B'} = [f]_{BB'} \times [v]_B\]
+
+\section{Isomorfismo $\Hom_\K(\V, \W) \sim \K^{\dim \W \times \dim \V}$}
+Definamos una $\phi : Hom(\V, \W) \to \K^{m \times n}, \phi = f \mapsto
+[f]_{BB'}$.
+
+Es fácil ver que dadas $\tl f, g : \V \to \W$, tenemos que $\phi (f + g) = \phi f +
+\phi g$, es decir, $[f+g] = [f] + [g]$. Y que dado $\lambda$, se tiene
+$\lambda \cdot [f] = [\lambda \cdot f]$
+
+Para ver que es iso, definamos la inversa $\psi : \K^{m \times n} \to \Hom(\V,
+\W), [\psi M v_i]_{B'} = M_{*i}$.
+
+Notemos que $(\phi \circ \psi) M = [\psi M]_{BB'}= M$, y además $(\psi \circ
+\phi) f = f$.
+
+\subsection{Corolario}
+$\dim \Hom(\V, \W) = \dim \K^{m \times n} = m \cdot n$
+
+\section{Prop}
+Sean $\V_{1,2,3}$ ev de dimensión $n_{1,2,3}$ y de bases $B_{1,2,3}$.
+Sean $\tl f : \V_1 \to \V_2$ y $\tl g : \V_2 \to \V_3$.
+
+Tenemos que $\tl f \circ g$ y que $[g \circ f]_{B_1B_3} = [g]_{B_2B_3} \times
+[f]_{B_1B_2}$
+
+\end{document}
