@@ -1,0 +1,105 @@
+\documentclass{article}
+\input{../../../style/header.tex}
+\title{Flows}
+\begin{document}
+	\maketitle
+	\section*{Ford Fulkenson}
+	\begin{enumerate}
+		\item $|f|$ max
+		\item no path nonzero $s \to t$ in $G_f$
+		\item $\exists S,T : c(S,T) = |f|$
+	\end{enumerate}
+	\section*{Cuts}
+	Give, $S, T$ with $s \in S$, and $t \in T$, a partition of $V$, se say:
+	\[c(S, T) = \sum_{v \in S, u \in T}c(v, u)\]
+
+	Proof:
+
+	$1 \to 2$ trivial. (Find augmenting path)
+
+	$2 \to 3$. We say 
+	\[f(S, T) = \sum_{v \in S, u \in T}f(v, u) = |f|\]
+	Which can be proven by induction, starting with $S = \{s\}$, by adding vertices one by one to $S$.
+
+	That proves $c(S,T) \leq f(S,T) = |f|$, and the equality happens only when all edges $S \to T$ are saturated.
+
+	Note that if we take $S$ to be the reachable vertices from $s$, then $c(S,T) = |f|$
+
+	Fo $3 \to 2$, we note that $c(S, T) \leq |f|$ for all $S, T, f$, then if we find and equality it must be for the maximum flow and the minimum cut.
+
+	\section*{Algorithms}
+	\subsection*{Ford Fulkenson}
+	Start with empty flow. While there exists augmenting path in $G_f$, add it to the flow.
+
+	Complexity: $\OO (m|f|)$. Not polynomial.
+	\subsection*{Edmonds Karp}
+	Use BFS to find the shortest path in the Ford Fulkenson algorithm.
+
+	Proof of polynomial time bound:
+	En each step, at least one edge $u \to v$ becomes saturated, and the distance from the source to its starting point increases, so that gives an $mn$ bound on the number of steps, so the complexity is:
+
+	Complexity: $\OO (nm^2)$.
+
+	\subsection*{Dinitz}
+	In each phase, while there's an augmenting path, do a BFS algorithm to compute distances to $s$. We will only consider "optimal path edges", making a "layered graph".
+
+	If we find a "blocking flow", ie a maximum flow in the layered graph, then there will be no path left in the reduces path. So the distance to $t$ increases. That gives an $n$ bound on the number of steps.
+
+	We will search for augmenting paths in the reduced graph with a DFS.
+
+	\begin{lstlisting}[language=C++]
+Edge {
+	int to, cap, flow;
+	Edge *rev;
+};
+vector<vecto<Edge>> graph;
+int dfs(int u, int flow) {
+	if(u == t) return flow;
+	// is in the reduced graph and is unsaturated
+	for(e : graph[u]) if(valid(e)) {
+		int k = dfs(e.to, min(flow, e.cap));
+		if(k > 0) {
+			// Augment
+			return k;
+		}
+		else {
+			remove edge e in this phase.
+			This elimitates the need fot a "visited"
+			array in the dfs.
+
+			Nothe that the removed edges are always a
+			prefix of the adjacency list, so its not expesive.
+			We can just store a pointer to the first unremoved
+			edges.
+		}
+	}
+	return 0;
+}
+	\end{lstlisting}
+	in the dfs, we don't have to collapse all the stack for each path.
+	Since there are at most $m$ paths, and each takes $\OO(n)$ time, each phase is $\OO(nm)$ time. Therefore, the total comexity is $\OO(n^2m)$
+
+	\section*{Bipartite Matching}
+	Bipartite matchings are in biyection with flows in a specialized graph. In those specialized graph, the complexities are:
+	\begin{itemize}
+		\item Ford Fulkenson - $\OO(mn)$
+		\item Edmond Karp - $\OO(mn)$
+	\end{itemize}
+
+	\section*{Vertex Cover}
+	in a graph $G$, a vertex cover $A \inn V$ is such that every edge ends or begins in $A$.
+
+	The vertex cover corresponds to the min-cut of the bipartite matching network: is $S$ is a min cut, then $S \cap A$ and $\overline S \cap B$ form a minimum vertex cover. (Any edge not covered would imply an infinite cut.
+
+	\section*{Closure Problem}
+	Given a directed graph with $\Z$-weighted vertices, we want to find the maximum-cost closed subset $S \inn V$ of vertices (closed = no edges $S \to \overline S$)
+
+	Let $A = c^{-1}(\N_0)$, and $B = \overline A$.
+
+	We create a network with $A$, $B$ and the artificial vertices $s, t$, such that there are edges $s \to A$ and $B \to t$ with the corresponding capacities.
+
+	Then we add the edges of the graph with infinite capacities, so if we include the start we must include the target.
+
+	\section*{Weighted vertex cover}
+	Is reduced to the closure problem.
+\end{document}
